@@ -1,11 +1,17 @@
-# Introduction
- 
-Welcome to Nextra! This is a basic docs template. You can use it as a starting point for your own project :)
+import React from 'react';
 
-## What is Nextra?
+export const Homepage = () => {
+  return (
+    <main className="font-sans leading-10">
+        <section className="h-screen-1/2 lg:h-screen-2/3 pt-20 ">
+            <h1 className="tracking-widest text-[36px] sm:text-[70px] lg:text-[100px] font-bold sm:leading-[70px] lg:leading-[100px]">CONNECTING BLOCKCHAINS.</h1>
+            <h2 className="w-full lg:w-3/4 text-[20px] sm:text-[34px] lg:text-[34px] pt-4 leading-6 sm:leading-10">This is how you build on ICON. Learn how to run a validator node, participate in the community, and build interoperable dapps with <span className="whitespace-nowrap font-bold">🌐 ICON's xCall Service.</span></h2>
+        </section>
+    </main>
+  );
+};
 
-A **simple**, **powerful** and **flexible** site generation framework with everything you love from Next.js.
+export default Homepage;
 
-## Documentation
 
-The documentation is available at [https://nextra.site](https://nextra.site).
+
