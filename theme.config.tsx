@@ -78,10 +78,3 @@ const config: DocsThemeConfig = {
 }
 
 
-
-export default config
-function useNextSeoProps(): () => void | import("next-seo").NextSeoProps {
-  throw new Error('Function not implemented.')
-}
-
-
