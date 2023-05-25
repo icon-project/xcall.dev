@@ -28,10 +28,10 @@ const config: DocsThemeConfig = {
     return (
       <>
         <meta property="og:url" content={url} />
-        <meta property="og:title" content={frontMatter.title || 'Nextra'} />
+        <meta property="og:title" content={frontMatter.title || 'ICON Docs'} />
         <meta
           property="og:description"
-          content={frontMatter.description || 'The next site builder'}
+          content={frontMatter.description || 'ICON Documentation'}
         />
       </>
     )
