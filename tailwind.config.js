@@ -10,9 +10,6 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontFamily: {
-      sans: ['Montserrat', 'sans-serif'],
-    },
     fontWeight: {
       hairline: 100,
       thin: 200,
@@ -25,6 +22,9 @@ module.exports = {
       black: 900,
     },
     extend: {
+      fontFamily: {
+        montserrat: "'Montserrat', sans-serif",
+      },
       height: {
         'screen-1/3': '33vh',
         'screen-2/3': '66vh',
