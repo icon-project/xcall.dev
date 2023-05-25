@@ -6,8 +6,10 @@
       "layout": "raw"
     }
   },
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "build-a-dapp": "Build a dApp",
+  "another": {
+    "title": "Another Page"
+  }, 
   "about": {
     "title": "About",
     "type": "page"

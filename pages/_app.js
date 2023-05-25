@@ -1,5 +1,5 @@
-import 'tailwindcss/tailwind.css'; // Import Tailwind CSS first
-import '../globals.css'; // Then import your custom styles
+import 'tailwindcss/tailwind.css'
+import '../globals.css';
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />

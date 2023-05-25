@@ -17,8 +17,7 @@ export const Counter = () => {
   const [count, setCount] = useState(0);
   return (
     <div>
-      <p className="border-2 p-10">Hello Test</p>
-      <button onClick={() => setCount(count + 1)} className={styles.counter}>Clicked {count} <span className='bg-black'>times</span></button>
+      <button onClick={() => setCount(count + 1)} className={styles.counter}>Clicked {count} times</button>
     </div>
   );
 };

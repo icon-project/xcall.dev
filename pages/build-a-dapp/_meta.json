@@ -1,0 +1,21 @@
+{
+    "index": {
+        "title": "Introduction",
+        "display": "hidden",
+        "theme": {
+          "layout": "full"
+        }
+      },
+    "getting-started": {
+        "title": "Getting Started"
+    },
+    "developer-tools": {
+        "title": "Developer tools"
+    },
+    "debugging": {
+        "title": "Debugging"
+    },
+    "managing-dependencies": {
+        "title": "Managing Dependencies"
+    }
+}
