@@ -1,11 +1,4 @@
 {
-    "index": {
-        "title": "Introduction",
-        "display": "hidden",
-        "theme": {
-          "layout": "full"
-        }
-      },
     "getting-started": {
         "title": "Getting Started"
     },

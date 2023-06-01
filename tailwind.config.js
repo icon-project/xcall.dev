@@ -24,6 +24,7 @@ module.exports = {
     extend: {
       fontFamily: {
         montserrat: "'Montserrat', sans-serif",
+        lemon: "'LEMON', sans-serif",
       },
       height: {
         'screen-1/3': '33vh',

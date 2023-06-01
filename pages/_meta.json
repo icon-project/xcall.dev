@@ -1,12 +1,15 @@
 {
-  "index": {
-    "title": "Introduction",
-    "display": "hidden",
+  "build-a-dapp": {
+    "title": "Build a DApp",
     "theme": {
-      "layout": "raw"
+      "layout": "full"
     }
   },
-  "build-a-dapp": "Build a dApp",
+  "run-a-node": {
+    "title": "Run a Node",
+    "theme": {
+    "layout": "full"
+  }},
   "another": {
     "title": "Another Page"
   }, 
@@ -19,5 +22,12 @@
     "type": "page",
     "href": "https://twitter.com/shuding_",
     "newWindow": true
+  },
+  "index": {
+    "title": "Home",
+    "type": "page",
+    "theme": {
+      "layout": "raw"
+    }
   }
 }
