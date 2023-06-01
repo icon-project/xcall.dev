@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
+
 export const Homepage = () => {
   return (
     <main className="font-montserrat leading-10 max-w-7xl mx-auto space-y-20 dark:text-zinc-300 text-zinc-700 relative border dark:border-black border-white">
@@ -8,18 +9,19 @@ export const Homepage = () => {
             <Image src='/images/journeys-xcall.png' alt='Discover and integrate with xcall' height='1080' width='1920' />
         </div>
         <section className="pt-20 ">
-            <h1 className="tracking-widest text-[36px] sm:text-[70px] lg:text-[100px] font-bold sm:leading-[70px] lg:leading-[100px] font-lemon">CONNECTING BLOCKCHAINS.</h1>
+            <h1 className="tracking-widest text-[36px] sm:text-[70px] lg:text-[100px] font-bold sm:leading-[70px] lg:leading-[100px] font-lemon relative z-1">CONNECTING BLOCKCHAINS.</h1>
             <h2 className="w-full lg:w-3/4 text-[20px] sm:text-[34px] lg:text-[34px] pt-4 leading-6 sm:leading-10">This is how you build on ICON. Learn how to run a validator node, participate in the community, and build interoperable dapps with <span className="whitespace-nowrap font-bold">🌐 ICON's xCall Service.</span></h2>
             <a href='/build-a-dapp'><button className='bg-teal-300 dark:bg-teal-600 px-8 py-4 rounded-full font-medium text-zinc-700 dark:text-zinc-300 text-3xl mt-10'>Get Started →</button></a>
+            
         </section>
         
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 leading-normal ">
            
                 <a href='/build-a-dapp' className="flex flex-col items-start justify-start space-y-0 py-4 px-8 h-[450px] dark:bg-zinc-900 bg-zinc-100 rounded-[30px]">
                     <p className=''>Interoperability</p>
                     <div className='relative aspect-square w-full'>   
                         <div className='bg-zinc-200 dark:bg-zinc-800 h-1/3 w-full absolute bottom-10 rounded-xl'></div>                    
-                        <div className='absolute bottom-0'><Image src='/images/users.png' height='700' width='700'/></div>                       
+                        <div className='absolute bottom-0'><Image src='/images/users.png' alt='Users of xCall' height='700' width='700'/></div>                       
                     </div>
                     <h3 className='font-bold text-xl'>xCall Service</h3>
                     <p>One messaging standard for all cross chain communication.</p>
@@ -29,7 +31,7 @@ export const Homepage = () => {
                     <p className=''>dApp developers</p>
                     <div className='relative aspect-square w-full'>   
                         <div className='bg-zinc-200 dark:bg-zinc-800 h-1/3 w-full absolute bottom-10 rounded-xl'></div>                    
-                        <div className='absolute bottom-0'><Image src='/images/devs.png' height='700' width='700'/></div>                       
+                        <div className='absolute bottom-0'><Image src='/images/devs.png' alt='Devs of xCall' height='700' width='700'/></div>                       
                     </div>
                     <h3 className='font-bold text-xl'>Build a dApp</h3>
                     <p>Follow easy step-by-step tutorials and start building today</p>
@@ -39,17 +41,17 @@ export const Homepage = () => {
                     <p className=''>dApp users</p>
                     <div className='relative aspect-square w-full'>   
                         <div className='bg-zinc-200 dark:bg-zinc-800 h-1/3 w-full absolute bottom-10 rounded-xl'></div>                    
-                        <div className='absolute bottom-0'><Image src='/images/users.png' height='700' width='700'/></div>                       
+                        <div className='absolute bottom-0'><Image src='/images/users.png' alt='Users of xCall' height='700' width='700'/></div>                       
                     </div>
                     <h3 className='font-bold text-xl'>Community</h3>
                     <p>Get involved in the amazing ICON community</p>
                 </a>
            
-                <a href='/build-a-dapp'  className="flex flex-col items-start justify-start space-y-0 py-4 px-8 h-[450px]  dark:bg-zinc-900 bg-zinc-100  rounded-[30px]">
+                <a href='/run-a-node'  className="flex flex-col items-start justify-start space-y-0 py-4 px-8 h-[450px]  dark:bg-zinc-900 bg-zinc-100  rounded-[30px] animate-bounce hover:animate-none hover:scale-105 hover:rotate-2 transition-all duration-300">
                     <p className=''>Validators</p>
                     <div className='relative aspect-square w-full'>   
                         <div className='bg-zinc-200 dark:bg-zinc-800 h-1/3 w-full absolute bottom-10 rounded-xl'></div>                    
-                        <div className='absolute bottom-0'><Image src='/images/devs.png' height='700' width='700'/></div>                       
+                        <div className='absolute bottom-0'><Image src='/images/devs.png' alt='Devs of xCall' height='700' width='700'/></div>                       
                     </div>
                     <h3 className='font-bold text-xl'>Run a node</h3>
                     <p>Help secure the ICON Network and earn ICX rewards</p>
@@ -61,7 +63,7 @@ export const Homepage = () => {
             <p className='text-zinc-800 dark:text-zinc-400'>Popular articles</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div className="flex flex-row items-center justify-start space-y-0 py-4 px-8 h-[150px] dark:bg-zinc-900 bg-zinc-100  rounded-[30px]">
-                    <div className='w-[100px]'><Image src='/images/devs.png' height='700' width='700'/></div>
+                    <div className='w-[100px]'><Image src='/images/devs.png' alt='Devs of xCall' height='700' width='700'/></div>
                     <div>
                         <p className='dark:text-zinc-600 text-zinc-400'>Developers</p>
                         <h3 className='font-bold text-xl'>Easy xCall Service implementation example</h3>
@@ -69,7 +71,7 @@ export const Homepage = () => {
                     </div>                  
                 </div>
                 <div className="flex flex-row items-center justify-start space-y-0 py-4 px-8 h-[150px] dark:bg-zinc-900 bg-zinc-100  rounded-[30px]">
-                    <div className='w-[100px]'><Image src='/images/users.png' height='700' width='700'/></div>
+                    <div className='w-[100px]'><Image src='/images/users.png' alt='Users of xCall' height='700' width='700'/></div>
                     <div>
                         <p className='dark:text-zinc-600 text-zinc-400'>Validators</p>
                         <h3 className='font-bold text-xl'>Node setup requirements</h3>
@@ -83,8 +85,8 @@ export const Homepage = () => {
             <div className='flex flex-col justify-start items-center w-full md:w-1/2 space-y-2 px-6'>
                 <h2 className='w-full font-bold text-3xl my-4'>xCall Service Articles</h2>
                 <div className='flex flex-row items-center justify-start border-b border-zinc-200 dark:border-zinc-800 py-4 w-full'>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" className="w-10 h-10 mr-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-10 h-10 mr-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                     </svg>
                     <div className='leading-none space-y-1'>
                         <h3 className='font-semibold'>Cross-Chain Communication Simplified</h3>
@@ -92,8 +94,8 @@ export const Homepage = () => {
                     </div>    
                 </div>
                 <div className='flex flex-row items-center justify-start border-b border-zinc-200 dark:border-zinc-800 py-4 w-full'>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" className="w-10 h-10 mr-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-10 h-10 mr-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                     </svg>
                     <div className='leading-none space-y-1'>
                         <h3 className='font-semibold'>Blockchain Transmission Protocol Explained</h3>
@@ -101,8 +103,8 @@ export const Homepage = () => {
                     </div>    
                 </div>
                 <div className='flex flex-row items-center justify-start border-b border-zinc-200 dark:border-zinc-800 py-4 w-full'>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" className="w-10 h-10 mr-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-10 h-10 mr-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                     </svg>
                     <div className='leading-none space-y-1'>
                         <h3 className='font-semibold'>Local xCall Simulation Guide</h3>
@@ -110,8 +112,8 @@ export const Homepage = () => {
                     </div>    
                 </div>
                 <div className='flex flex-row items-center justify-start border-b border-zinc-200 dark:border-zinc-800 py-4 w-full'>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" className="w-10 h-10 mr-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-10 h-10 mr-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                     </svg>
                     <div className='leading-none space-y-1'>
                         <h3 className='font-semibold'>xCall Standard: Key Concepts</h3>
@@ -119,8 +121,8 @@ export const Homepage = () => {
                     </div>    
                 </div>
                 <div className='flex flex-row items-center justify-start border-b border-zinc-200 dark:border-zinc-800 py-4 w-full'>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" className="w-10 h-10 mr-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-10 h-10 mr-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                     </svg>
                     <div className='leading-none space-y-1'>
                         <h3 className='font-semibold'>IBC Integration for xCall</h3>
@@ -131,8 +133,8 @@ export const Homepage = () => {
             <div className='flex flex-col justify-start items-center w-full md:w-1/2 space-y-2 px-6'>
                 <h2 className='w-full font-bold text-3xl my-4'>Intro to the Stack</h2>
                 <div className='flex flex-row items-center justify-start border-b border-zinc-200 dark:border-zinc-800 py-4 w-full'>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" className="w-10 h-10 mr-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-10 h-10 mr-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                     </svg>
                     <div className='leading-none space-y-1'>
                         <h3 className='font-semibold'>Understanding ICON Execution Environments</h3>
@@ -140,8 +142,8 @@ export const Homepage = () => {
                     </div>    
                 </div>
                 <div className='flex flex-row items-center justify-start border-b border-zinc-200 dark:border-zinc-800 py-4 w-full'>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" className="w-10 h-10 mr-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-10 h-10 mr-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                     </svg>
                     <div className='leading-none space-y-1'>
                         <h3 className='font-semibold'>Demystifying ICON Smart Contracts</h3>
@@ -149,8 +151,8 @@ export const Homepage = () => {
                     </div>    
                 </div>
                 <div className='flex flex-row items-center justify-start border-b border-zinc-200 dark:border-zinc-800 py-4 w-full'>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" className="w-10 h-10 mr-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-10 h-10 mr-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                     </svg>
                     <div className='leading-none space-y-1'>
                         <h3 className='font-semibold'>Connecting to ICON Nodes</h3>
@@ -158,8 +160,8 @@ export const Homepage = () => {
                     </div>    
                 </div>
                 <div className='flex flex-row items-center justify-start border-b border-zinc-200 dark:border-zinc-800 py-4 w-full'>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" className="w-10 h-10 mr-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-10 h-10 mr-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                     </svg>
                     <div className='leading-none space-y-1'>
                         <h3 className='font-semibold'>Exploring ICON Client SDKs</h3>
@@ -167,8 +169,8 @@ export const Homepage = () => {
                     </div>    
                 </div>
                 <div className='flex flex-row items-center justify-start border-b border-zinc-200 dark:border-zinc-800 py-4 w-full'>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" className="w-10 h-10 mr-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-10 h-10 mr-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                     </svg>
                     <div className='leading-none space-y-1'>
                         <h3 className='font-semibold'>Interacting with End-User Applications</h3>

@@ -1,7 +1,8 @@
 import React from 'react'
-import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
+import { DocsThemeConfig, useConfig, useTheme } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+import { C } from 'nextra/dist/types-fa5ec8b0'
 
 
 const config: DocsThemeConfig = {
@@ -36,13 +37,31 @@ const config: DocsThemeConfig = {
       </>
     )
   },
-  logo: <Image src='/images/icon-logo-white.svg' height='50' width='100' alt={'ICON logo'} />,
+  logo: () => {
+    const {systemTheme, theme, setTheme} = useTheme();
+    const currentTheme = theme === 'system' ? systemTheme : theme;
+      if(currentTheme === 'dark') {
+        return (
+          <Image src='/images/icon-logo-white.svg' height='50' width='100' alt={'ICON logo'} />
+        )
+    } else {
+        return (
+          <Image src='/images/icon-logo.svg' height='50' width='100' alt={'ICON logo'} />
+        )
+    }    
+  },
   chat: {
     link: 'https://icon.community/icondiscord/',
   },
-  sidebar: {
-    defaultMenuCollapseLevel: 1,
-    toggleButton: true,
+  sidebar: {   
+    titleComponent({ title, type }) {
+      if (type === 'separator') {
+        return (
+          <div><Image src='/images/notion-xcall-program.jpg' alt='This is xCall' width='3840' height='780'/></div>
+        )
+      }
+      return <>{title}</>
+    }
   },
   banner: {
     key: 'banner-2',

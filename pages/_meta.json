@@ -1,4 +1,14 @@
 {
+  "index": {
+    "title": "Home",
+    "theme": {
+      "layout": "raw"
+    }
+  },
+  "---": {
+    "type": "separator",
+    "title": "A Separator"
+  },
   "build-a-dapp": {
     "title": "Build a DApp",
     "theme": {
@@ -22,12 +32,5 @@
     "type": "page",
     "href": "https://twitter.com/shuding_",
     "newWindow": true
-  },
-  "index": {
-    "title": "Home",
-    "type": "page",
-    "theme": {
-      "layout": "raw"
-    }
-  }
+  }  
 }
