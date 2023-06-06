@@ -65,7 +65,7 @@ const config: DocsThemeConfig = {
   },
   banner: {
     key: 'banner-2',
-    text: <span>😲 This is a example of what ICON documentation could look like with <a className="inline-block underline" href='https://nextra.site/'>Nextra →</a></span>
+    text: <span>Get in touch for your dApp's xCall integration! <a href="mailto:david@icon.foundation" className='inline-block'>Click here and reach out now 📨</a></span>
   },
   navigation: {
     prev: true,
