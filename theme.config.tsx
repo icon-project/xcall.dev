@@ -72,7 +72,7 @@ const config: DocsThemeConfig = {
     next: true
   },
   project: {
-    link: 'https://github.com/DavidFBD/newdocs',
+    link: 'https://github.com/DavidFBD/newdocs/blob/main',
     icon: <Image src='/images/icx.svg' height='20' width='20' alt={'ICON icon'} />
   },
   direction: 'ltr',
