@@ -72,11 +72,11 @@ const config: DocsThemeConfig = {
     next: true
   },
   project: {
-    link: 'https://github.com/DavidFBD/newdocs/blob/main',
+    link: 'https://github.com/DavidFBD/newdocs/',
     icon: <Image src='/images/icx.svg' height='20' width='20' alt={'ICON icon'} />
   },
   direction: 'ltr',
-  docsRepositoryBase: 'https://github.com/DavidFBD/newdocs',
+  docsRepositoryBase: 'https://github.com/DavidFBD/newdocsblob/main/',
   // main: (
   //   <div>
   //     What is happening here?
