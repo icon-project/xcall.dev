@@ -9,20 +9,23 @@
     "type": "separator",
     "title": "A Separator"
   },
-  "build-a-dapp": {
-    "title": "Build a DApp",
+  "btp": {
+    "title": "Blockchain Transmission Protocol (BTP)",
     "theme": {
-      "layout": "full"
+      "layout": "default"
     }
   },
-  "run-a-node": {
-    "title": "Run a Node",
+  "xcall": {
+    "title": "xCall",
     "theme": {
-    "layout": "full"
+      "layout": "default"
+    }
+  },
+  "icon-bridge": {
+    "title": "ICON Bridge",
+    "theme": {
+    "layout": "default"
   }},
-  "another": {
-    "title": "Another Page"
-  }, 
   "about": {
     "title": "About",
     "type": "page"

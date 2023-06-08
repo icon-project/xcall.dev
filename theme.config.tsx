@@ -57,7 +57,7 @@ const config: DocsThemeConfig = {
     titleComponent({ title, type }) {
       if (type === 'separator') {
         return (
-          <div><Image src='/images/notion-xcall-program.jpg' alt='This is xCall' width='3840' height='780'/></div>
+          <div><Image src='/images/hero-xcall-mobile.png' alt='This is xCall' width='3840' height='780'/></div>
         )
       }
       return <>{title}</>
@@ -72,11 +72,11 @@ const config: DocsThemeConfig = {
     next: true
   },
   project: {
-    link: 'https://github.com/DavidFBD/docs-custom-icon',
+    link: 'https://github.com/DavidFBD/newdocs',
     icon: <Image src='/images/icx.svg' height='20' width='20' alt={'ICON icon'} />
   },
   direction: 'ltr',
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: 'https://github.com/DavidFBD/newdocs',
   // main: (
   //   <div>
   //     What is happening here?
