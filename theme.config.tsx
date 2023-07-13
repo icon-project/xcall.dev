@@ -27,19 +27,44 @@ const config: DocsThemeConfig = {
     const { asPath, defaultLocale, locale } = useRouter()
     const { frontMatter } = useConfig()
     const url =
-      'https://my-app.com' +
+      'https://xcall.dev' +
       (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
+    const { title } = useConfig()
+    const { route } = useRouter()
  
     return (
       <>
-        <meta property="og:url" content={url} />
-        <meta property="og:title" content={frontMatter.title || 'ICON Docs'} />
+        <meta name="msapplication-TileColor" content="#fff" />
+        <meta name="theme-color" content="#fff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="Content-Language" content="en" />
         <meta
-          property="og:description"
-          content={frontMatter.description || 'ICON Documentation'}
+          name="description"
+          content="A cross-chain messaging interface deployable on any protocol"
         />
+        <meta
+          name="og:description"
+          content="A cross-chain messaging interface deployable on any protocol"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/images/link_preview_xcalldev.jpg" />
+        <meta name="twitter:site:domain" content="xcall.dev" />
+        <meta name="twitter:url" content="https://xcall.dev" />
+        <meta
+          name="og:title"
+          content={title ? title + ' – xCall' : 'xCall'}
+        />
+        <meta name="og:image" content="/images/link_preview_xcalldev.jpg" />
+        <meta name="apple-mobile-web-app-title" content="xCall" />
       </>
     )
+  },
+  editLink: {
+    text: 'Contribute to this page on GitHub →'
+  },
+  feedback: {
+    content: 'Question? Give us feedback →',
+    labels: 'feedback'
   },
   logo: () => {
     const {systemTheme, theme, setTheme} = useTheme();
@@ -57,35 +82,24 @@ const config: DocsThemeConfig = {
   chat: {
     link: 'https://icon.community/icondiscord/',
   },
-  sidebar: {   
+  sidebar: {
     titleComponent({ title, type }) {
       if (type === 'separator') {
-        return (
-          <div><Image src='/images/hero-xcall-mobile.png' alt='This is xCall' width='3840' height='780'/></div>
-        )
+        return <span className="cursor-default">{title}</span>
       }
       return <>{title}</>
-    }
+    },
+    defaultMenuCollapseLevel: 1,
+    toggleButton: true
   },
   banner: {
     key: 'banner-2',
-    text: <span>Get in touch for your dApp's xCall integration! <a href="mailto:david@icon.foundation" className='inline-block'>Click here and reach out now 📨</a></span>
+    text: <span><a href="https://iconfoundation.notion.site/Testnet-Challenges-bc1b7de910894307970841d64ea9548f" className='inline-block underline'>🏆 Earn ICX token rewards with xCall Incentivized Testnet Challenges →</a></span>
   },
   navigation: {
     prev: true,
     next: true
   },
-  project: {
-    link: 'https://github.com/DavidFBD/newdocs/',
-    icon: <Image src='/images/icx.svg' height='20' width='20' alt={'ICON icon'} />
-  },
-  direction: 'ltr',
-  docsRepositoryBase: 'https://github.com/DavidFBD/newdocs/blob/main/',
-  // main: (
-  //   <div>
-  //     What is happening here?
-  //   </div>
-  // ),
   footer: {
     text: (
       <span>

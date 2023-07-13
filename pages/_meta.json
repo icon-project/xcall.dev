@@ -1,13 +1,49 @@
 {
+  "-- WELCOME": {
+    "type": "separator",
+    "title": "WELCOME"
+  },
   "index": {
     "title": "Home",
     "theme": {
       "layout": "raw"
     }
   },
-  "---": {
+  "-- XCALL": {
     "type": "separator",
-    "title": "A Separator"
+    "title": "🔀 XCALL"
+  },
+  "what-is-xcall": {
+    "title": "What is xCall?",
+    "theme": {
+    "layout": "default"
+  }},
+  "getting-started": {
+    "title": "Getting started",
+    "theme": {
+    "layout": "default"
+  }},
+  "-- BUILD WITH XCALL": {
+    "type": "separator",
+    "title": "BUILD WITH XCALL"
+  },
+  "quickstart": {
+    "title": "Quickstart",
+    "theme": {
+      "layout": "default"
+    }
+  },
+  "guides": {
+    "title": "Guides",
+    "theme": {
+      "layout": "default"
+    }
+  },
+  "explanations": {
+    "title": "Explanations",
+    "theme": {
+      "layout": "default"
+    }
   },
   "btp": {
     "title": "Blockchain Transmission Protocol (BTP)",
@@ -21,6 +57,7 @@
       "layout": "default"
     }
   },
+  
   "icon-bridge": {
     "title": "ICON Bridge",
     "theme": {
