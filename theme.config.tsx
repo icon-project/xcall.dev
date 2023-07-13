@@ -61,7 +61,7 @@ const config: DocsThemeConfig = {
         <meta name="twitter:url" content="https://xcall.dev" />
         <meta
           name="og:title"
-          content={title ? title + ' – xCall' : 'xCall'}
+          content={title && title !== 'Index' ? title + ' – xCall' : 'xCall Documentation'}
         />
         <meta name="og:image" content="/images/link_preview_xcalldev.jpg" />
         <meta name="apple-mobile-web-app-title" content="xCall" />
