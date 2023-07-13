@@ -56,14 +56,14 @@ const config: DocsThemeConfig = {
           content="A cross-chain messaging interface deployable on any protocol"
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/images/link_preview_xcalldev.jpg" />
+        <meta name="twitter:image" content="/images/link-preview.jpg" />
         <meta name="twitter:site:domain" content="xcall.dev" />
         <meta name="twitter:url" content="https://xcall.dev" />
         <meta
           name="og:title"
           content={title && title !== 'Index' ? title + ' – xCall' : 'xCall Documentation'}
         />
-        <meta name="og:image" content="/images/link_preview_xcalldev.jpg" />
+        <meta name="og:image" content="/images/link-preview.jpg" />
         <meta name="apple-mobile-web-app-title" content="xCall" />
       </>
     )
