@@ -88,9 +88,6 @@ const config: DocsThemeConfig = {
         )
     }    
   },
-  chat: {
-    link: 'https://icon.community/icondiscord/',
-  },
   sidebar: {
     titleComponent({ title, type }) {
       if (type === 'separator') {
