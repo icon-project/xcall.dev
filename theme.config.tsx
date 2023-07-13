@@ -6,6 +6,10 @@ import { C } from 'nextra/dist/types-fa5ec8b0'
 
 
 const config: DocsThemeConfig = {
+  project: {
+    link: 'https://github.com/icon-project/xcall.dev'
+  },
+  docsRepositoryBase: 'https://github.com/icon-project/xcall.dev/tree/main/',
   gitTimestamp: () => {
     const { frontMatter } = useConfig();
     return (
