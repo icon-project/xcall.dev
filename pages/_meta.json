@@ -45,6 +45,10 @@
       "layout": "default"
     }
   },
+  "-- EXAMPLE LAYOUT FILES (TO BE REMOVED)": {
+    "type": "separator",
+    "title": "⚠️ EXAMPLE LAYOUT FILES (TO BE REMOVED)"
+  },
   "btp": {
     "title": "Blockchain Transmission Protocol (BTP)",
     "theme": {

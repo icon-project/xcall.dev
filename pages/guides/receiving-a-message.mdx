@@ -1,0 +1,16 @@
+-- INCOMPLETE FILE
+
+There are two steps that the EOA on the destination chain must do in order to receive and execute a message.
+
+1. Listen for the ```CallMessage``` event emitted by the xCall contract on the destination chain that has the same serial number as the request from the source.
+2. Invoke the ```executeCall``` method on the xCall contract on the destination chain. Pass the request id and calldata from the ```CallMessage``` event as arguments.
+
+## Listen for CallMessage event
+
+When the xCall contract on the destination chain receives the call request, it emits the following event for notifying the user.
+
+```filename="" copy
+insert code here
+```
+
+Continue writing here
