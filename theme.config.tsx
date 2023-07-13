@@ -7,6 +7,9 @@ const config: DocsThemeConfig = {
   project: {
     link: 'https://github.com/icon-project/xcall.dev'
   },
+  chat: {
+    link: 'https://icon.community/icondiscord/'
+  },
   docsRepositoryBase: 'https://github.com/icon-project/xcall.dev/tree/main/',
   useNextSeoProps() {
     const { asPath } = useRouter()
@@ -39,6 +42,7 @@ const config: DocsThemeConfig = {
  
     return (
       <>
+        <link rel="icon" type="image/png" href="/images/xcall-favicon.ico" />
         <meta name="msapplication-TileColor" content="#fff" />
         <meta name="theme-color" content="#fff" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
