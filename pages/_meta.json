@@ -60,21 +60,16 @@
     "theme": {
       "layout": "default"
     }
-  },
-  
+  },  
   "icon-bridge": {
     "title": "ICON Bridge",
     "theme": {
     "layout": "default"
   }},
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
-  "contact": {
-    "title": "Contact ↗",
+  "xCall Homepage": {
+    "title": "xCall Homepage ↗",
     "type": "page",
-    "href": "https://icon.community/icondiscord/",
+    "href": "https://icon.community/xcall",
     "newWindow": true
-  }  
+  } 
 }

@@ -2,14 +2,24 @@ import React from 'react'
 import { DocsThemeConfig, useConfig, useTheme } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
-import { C } from 'nextra/dist/types-fa5ec8b0'
-
 
 const config: DocsThemeConfig = {
   project: {
     link: 'https://github.com/icon-project/xcall.dev'
   },
   docsRepositoryBase: 'https://github.com/icon-project/xcall.dev/tree/main/',
+  useNextSeoProps() {
+    const { asPath } = useRouter()
+    if (asPath !== '/') {
+      return {
+        titleTemplate: '%s – xCall Documentation'
+      } 
+    } else {
+      return {
+        title: 'Welcome - xCall Documentation',
+      }
+    }
+  },
   gitTimestamp: () => {
     const { frontMatter } = useConfig();
     return (
@@ -20,17 +30,12 @@ const config: DocsThemeConfig = {
     );
   },
   primaryHue: {
-    dark: 170, 
-    light: 190,
+    dark: 182, 
+    light: 182,
   },
   head: () => {
     const { asPath, defaultLocale, locale } = useRouter()
-    const { frontMatter } = useConfig()
-    const url =
-      'https://xcall.dev' +
-      (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
     const { title } = useConfig()
-    const { route } = useRouter()
  
     return (
       <>
@@ -71,11 +76,11 @@ const config: DocsThemeConfig = {
     const currentTheme = theme === 'system' ? systemTheme : theme;
       if(currentTheme === 'dark') {
         return (
-          <Image src='/images/icon-logo-white.svg' height='50' width='100' alt={'ICON logo'} />
+          <Image src='/images/xcall-white.svg' height='50' width='100' alt={'ICON logo'} />
         )
     } else {
         return (
-          <Image src='/images/icon-logo.svg' height='50' width='100' alt={'ICON logo'} />
+          <Image src='/images/xcall.svg' height='50' width='100' alt={'ICON logo'} />
         )
     }    
   },
