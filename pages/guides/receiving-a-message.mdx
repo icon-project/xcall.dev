@@ -23,13 +23,13 @@ When the xCall contract on the destination chain receives the call request, it e
 void CallMessage(String _from, String _to, BigInteger _sn, BigInteger _reqId, byte[] _data);
 ```
 
-To minimize the gas cost, the calldata payload delivered from the source chain are exported to event `_data` field, instead of storing it in the state db. The \_data payload should be repopulated by the user (or client) when calling the following `executeCall` method. Then `xCall` compares it with the saved hash value to validate its integrity.
+To minimize the gas cost, the calldata payload delivered from the source chain are exported to event `_data` field, instead of storing it in the state db. The _data payload should be repopulated by the user (or client) when calling the following `executeCall` method. Then `xCall` compares it with the saved hash value to validate its integrity.
 
 ### Invoke executeCall
 
 After `CallMessage` Event is observed by EOA, he invokes the following method on `xCall` with the given `_reqId` and `_data`.
 
-```
+```java
 /**
  * Executes the requested call message.
  *
@@ -42,7 +42,7 @@ void executeCall(BigInteger _reqId, byte[] _data);
 
 When the EOA calls `executeCall` method, the `xCall` contract invokes the following predefined method in the target dApp with the calldata associated in `_reqId`.
 
-```
+```java
 /**
  * Handles the call message received from the source chain.
  * Only called from the Call Message Service.
@@ -60,7 +60,7 @@ void handleCallMessage(String _from, byte[] _data);
 
 To notify the execution result of dApp's `handleCallMessage` method, the following event is emitted after its execution.
 
-```
+```java
 /**
  * Notifies that the call message has been executed.
  *

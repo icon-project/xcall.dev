@@ -252,7 +252,7 @@ This method is payable, and dApps need to call this method with proper fees. dAp
 
 > **`@External(readonly=true) BigInteger getFee(String _net, boolean _rollback)`**
 >
-> Gets the fee for delivering a message to the \_net. If the sender is going to provide rollback data, the \_rollback param should set as true. The returned fee is the sum of the protocol fee and the relay fee.
+> Gets the fee for delivering a message to the _net. If the sender is going to provide rollback data, the _rollback param should set as true. The returned fee is the sum of the protocol fee and the relay fee.
 >
 > * **Parameters:**
 >   * `_net` — The network address
@@ -405,7 +405,7 @@ async function main() {
     console.log("events:", events);
     console.log("# ReqId:", events[0].args._reqId);
 }
- 
+
 ```
 
 When the event gets triggered we will have a response like in the following:
@@ -558,7 +558,7 @@ async function main() {
     console.log("callExecutedEvent:", callExecutedEvent);
 }
 
-    
+
 ```
 
 The result in this case is the following:

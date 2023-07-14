@@ -4,10 +4,9 @@ When you're making a cross-chain call using xCall, there's a fee that covers the
 
 `getFee(String _net, boolean _rollback)` returns the total fee (relay + protocol) for sending a message to the specified network. If a rollback data is provided, the `_rollback` param should be set as true because there is an additional backward direction fee (from destination back to source) if rollback is used.
 
-\
 This fee is split into two parts:
 
-**Relay Fee**: This fee is for the service that actually sends your message from one blockchain to another.&#x20;
+**Relay Fee**: This fee is for the service that actually sends your message from one blockchain to another.
 
 **Protocol Fee**: This is the fee for using the cross-chain communication protocol underlying xCall.
 
