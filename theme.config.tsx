@@ -69,24 +69,16 @@ const config: DocsThemeConfig = {
     )
   },
   editLink: {
-    text: 'Contribute to this page on GitHub →'
+    text: 'Contribute to this page →'
   },
   feedback: {
     content: 'Question? Give us feedback →',
     labels: 'feedback'
   },
   logo: () => {
-    const {systemTheme, theme, setTheme} = useTheme();
-    const currentTheme = theme === 'system' ? systemTheme : theme;
-      if(currentTheme === 'dark') {
-        return (
-          <Image src='/images/xcall-white.svg' height='50' width='100' alt={'ICON logo'} />
-        )
-    } else {
         return (
           <Image src='/images/xcall.svg' height='50' width='100' alt={'ICON logo'} />
-        )
-    }    
+        )     
   },
   sidebar: {
     titleComponent({ title, type }) {
