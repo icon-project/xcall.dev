@@ -77,7 +77,7 @@ const config: DocsThemeConfig = {
   },
   logo: () => {
         return (
-          <Image src='/images/xcall.svg' height='50' width='100' alt={'ICON logo'} />
+          <Image src='/images/xcall.svg' height='50' width='100' alt={'xCall logo'} />
         )     
   },
   sidebar: {
@@ -100,13 +100,20 @@ const config: DocsThemeConfig = {
   },
   footer: {
     text: (
-      <span>
-        {new Date().getFullYear()} ©{' '}
-        <a href="https://icon.community/" target="_blank">
-          ICON
-        </a>
-        .
-      </span>
+      <div className="flex flex-col items-center w-full sm:items-start">
+        <div>
+          <a
+            className="flex items-center gap-1 text-current"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="icon.foundation homepage"
+            href="https://www.icon.foundation/"
+          >
+            
+            <Image className='' src='/images/icon-foundation-logo.svg' height='50' width='100' alt={'ICON logo'} />
+          </a>
+        </div>
+      </div>   
     )
   },
   faviconGlyph: '🌐',
