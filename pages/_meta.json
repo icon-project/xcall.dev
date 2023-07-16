@@ -45,27 +45,6 @@
       "layout": "default"
     }
   },
-  "-- EXAMPLE LAYOUT FILES (TO BE REMOVED)": {
-    "type": "separator",
-    "title": "⚠️ EXAMPLE LAYOUT FILES (TO BE REMOVED)"
-  },
-  "btp": {
-    "title": "Blockchain Transmission Protocol (BTP)",
-    "theme": {
-      "layout": "default"
-    }
-  },
-  "xcall": {
-    "title": "xCall",
-    "theme": {
-      "layout": "default"
-    }
-  },  
-  "icon-bridge": {
-    "title": "ICON Bridge",
-    "theme": {
-    "layout": "default"
-  }},
   "testnet": {
       "title": "💰 Incentivized Testnet",
       "type": "menu",
