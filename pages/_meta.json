@@ -59,56 +59,6 @@
         }
       }
   },
-  "quickstart-nav": {
-    "title": "Quickstart",
-    "type": "menu",
-    "items": {
-      "setting-up-a-local-environment": {
-        "title": "Setting up a local environment",
-        "href": "/quickstart/setting-up-a-local-environment"
-      },
-      "sending-a-message": {
-        "title": "Sending a message",
-        "href": "/quickstart/sending-a-message"
-      },
-      "sending-a-message-with-rollback": {
-        "title": "Sending a message with rollback",
-        "href": "/quickstart/sending-a-message-with-rollback"
-      }
-    }
-  },
-  "guides-nav": {
-    "title": "Guides",
-    "type": "menu",
-    "items": {
-      "sending-a-message": {
-        "title": "Sending a message",
-        "href": "/guides/sending-a-message"
-      },
-      "receiving-a-message": {
-        "title": "Receiving a message",
-        "href": "/guides/receiving-a-message"
-      },
-      "error-handling": {
-        "title": "Error Handling",
-        "href": "/guides/error-handling"
-      }
-    }
-  },
-  "explanations-nav": {
-    "title": "Explanations",
-    "type": "menu",
-    "items": {
-      "message-lifecycle": {
-        "title": "Message Lifecycle",
-        "href": "/explanations/message-lifecycle"
-      },
-      "fees": {
-        "title": "Fees",
-        "href": "/explanations/fees"
-      }
-    }
-  },
   "xCall Homepage": {
     "title": "xCall Homepage ↗",
     "type": "page",
