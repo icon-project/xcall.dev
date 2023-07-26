@@ -1,0 +1,166 @@
+import { Callout } from "nextra/components";
+
+# Setup Local Environment Using DIVE Cli
+
+## Introduction
+
+Welcome to the DIVE Command-Line Interface (CLI), This guide will help you get up and running with DIVE CLI, the all-in-one tool designed to simplify blockchain development, set up local environments, and enable seamless cross-chain communication.
+
+## Prerequisites
+
+Before diving into DIVE CLI, ensure you have the following prerequisites installed on your system:
+
+- [Docker installed and running](https://docs.kurtosis.com/install/#i-install--start-docker)
+- [Kurtosis installed and running](https://docs.kurtosis.com/install/#ii-install-the-cli) or [upgrading to the latest](https://docs.kurtosis.com/upgrade/)
+
+## Installation
+
+- Installing with Homebrew
+
+        ```sh
+
+  brew install hugobyte/tap/dive-cli
+
+- Installing From Github [Releases](https://github.com/HugoByte/DIVE/releases)
+
+  ```sh
+  curl -L https://github.com/HugoByte/DIVE/releases/download/{version}/{releasefilename}.tar.gz > dive.tar.gz
+
+  tar -xzvf dive.tar.gz
+
+  mv dive /usr/bin/
+  ```
+
+## Setup Single Node
+
+### Icon
+
+To start an single ICON node, run the following command
+
+```sh
+
+dive chain icon
+
+```
+
+        <div align='justify'>
+
+After running the command, DIVE CLI will automatically start the ICON node
+and handle the necessary initialization processes. Please wait for the ICON
+node to fully initialize, which may take a few moments. Once the
+initialization is complete, you can interact with the local ICON chain as
+needed. DIVE CLI sets up the ICON node on your local environment, enabling
+you to deploy and test smart contracts, explore transactions, and experiment
+with various ICON blockchain
+
+    </div>
+
+#### Icon with Custom Configuration
+
+    ```sh
+    dive chain icon --config 'path to config.json' --genesis 'path to genesis file' --id 'custom chain id'
+    ```
+
+##### Parameters Explained
+
+- --config: Specify the path to your custom configuration file (config.json) using the --config flag. This file will include various network settings for the ICON chain.
+
+  Example Config:
+
+  ```
+  {
+  "id": "0",
+  "private_port": 9080,
+  "public_port": 8090,
+  "p2p_listen_address": "7080",
+  "p2p_address": "8080",
+  "cid": "0xacbc4e"
+  }
+  ```
+
+- --genesis: Provide the path to your custom genesis file using the --genesis flag. The genesis file contains the initial state and configurations for the ICON blockchain.
+
+- --id: Assign a custom chain ID for your ICON Node using the --id flag. This ID is used to uniquely identify your custom Node.
+
+<Callout type="info" emoji="💡">
+  TIP: If you want to start your icon node for BTP support you can also
+  decentralize by adding '--decentralisation' flag
+</Callout>
+
+    #### Decentralize already running ICON Node for BTP support
+
+DIVE CLI provides the capability to decentralize an already running ICON chain, preparing it for BTP (Blockchain Transfer Protocol) support. Follow these steps to decentralize your existing ICON chain using DIVE CLI:
+
+To decentralize your existing ICON chain for BTP support, use the following command:
+
+```sh
+
+dive chain icon decentralize --keyPassword 'keypassword' --keystorePath 'path to keystore file' --nid 'network ID' --nodeEndpoint 'Endpoint address' --serviceName 'container name'
+
+```
+
+##### Parameters Explained
+
+- --keyPassword: Provide the password for your keystore file using the --keyPassword flag. This password is used to unlock the keystore file during the decentralization process.
+
+- --keystorePath: Specify the path to your keystore file using the --keystorePath flag. The keystore file contains the private key required for decentralization.
+
+- --nid: Assign the network ID (NID) of your ICON node using the --nid flag. The NID uniquely identifies your ICON network.
+
+- --nodeEndpoint: Provide the endpoint address of your already running ICON node using the --nodeEndpoint flag. This endpoint allows DIVE CLI to interact with the existing ICON node.
+
+- --serviceName: Assign a custom container name for the decentralized ICON node using the --serviceName flag. This name will be used to identify the container during the decentralization process.
+
+After executing the command, DIVE CLI will initiate the decentralization process for your existing ICON node. Please wait for the process to complete, as this may take some time depending on the size of your blockchain and network.
+
+### Ethereum
+
+To start Eth Node, run the following command
+
+```sh
+dive chain eth
+```
+
+After running the command, DIVE CLI will automatically start the ETH node and handle the necessary initialization processes. Please wait for the ETH node to fully initialize, which may take a few moments.
+
+<Callout type="info" emoji="💡">
+  TIP: DIVE cli also supports hardhat. You can start an hardhat Node by running
+  the command ``` dive chain hardhat ```
+</Callout>
+
+## Setting up Cross chain connection
+
+To start both the ICON and Ethereum chains and establish a BTP bridge between them, run the following command:
+
+```sh
+dive bridge btp --chainA icon --chainB eth
+```
+
+<Callout type="info" emoji="💡">
+  <b>
+    Tip: By default, the bridge flag is set to false which uses BMV for BTPBlock
+    . If you need an BMV for Bridge , add the `--bridge` flag to the command.
+  </b>
+</Callout>
+
+The above command automates several essential tasks to configure and initialise the local environment:
+
+- Spinning up ICON and Ethereum Nodes: DIVE automatically starts and configures the ICON and Ethereum nodes required for your local environment.
+
+- Installing Required npm Dependencies: DIVE takes care of installing all the necessary npm dependencies for smooth operation.
+
+- Enabling BTP Block on ICON Local Network: By registering the node as a PRep and decentralizing the network, DIVE enables BTP block functionality on the ICON local network.
+
+- Deploying Contracts for BTP: DIVE automatically builds and deploys the required smart contracts (BMC, BMV, xCall & sample dApp) for BTP functionality on both the ICON and Ethereum chains.
+
+- Starting the Relay: The relay image is built and launched, actively monitoring both the ICON and Ethereum chains to facilitate seamless message transfer between them.
+
+<Callout type="info" emoji="💡">
+  <b>
+    Tip: Also you can setup a BTP bridge between (Icon-Icon) by running followng
+    command `dive bridge btp --chainA icon --chainB icon`
+  </b>
+</Callout>
+
+Once the process completes, your local environment with the ICON and Ethereum chains connected via the BTP bridge will be ready for testing and development.
+[DIVE CLI](https://github.com/HugoByte/DIVE) simplifies the entire setup, allowing you to focus on developing and testing your decentralized applications with ease. Happy developing.

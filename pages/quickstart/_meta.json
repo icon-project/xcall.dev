@@ -3,18 +3,24 @@
         "title": "Setting up a local environment",
         "theme": {
             "layout": "default"
-          }
+        }
     },
     "sending-a-message": {
         "title": "Sending a message",
         "theme": {
             "layout": "default"
-          }
+        }
     },
     "sending-a-message-with-rollback": {
         "title": "Sending a message with rollback",
         "theme": {
             "layout": "default"
-          }
+        }
+    },
+    "setting-up-a-local-environment-with-dive-cli": {
+        "title": "setting up a local environment with DIVE Cli",
+        "theme": {
+            "layout": "default"
+        }
     }
 }
