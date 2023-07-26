@@ -110,9 +110,11 @@ const config: DocsThemeConfig = {
             href="https://www.icon.foundation/"
           >
             
-            <Image className='' src='/images/icon-foundation-logo.svg' height='50' width='100' alt={'ICON logo'} />
+            <Image className='mx-auto' src='/images/icon-foundation-logo.svg' height='50' width='120' alt={'ICON logo'} />
+
           </a>
         </div>
+        <span className='py-2 mx-auto text-[6px]'>© ICON Foundation 2023</span>
       </div>   
     )
   },
