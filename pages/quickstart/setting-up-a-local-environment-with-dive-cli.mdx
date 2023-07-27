@@ -63,7 +63,7 @@ with various ICON blockchain
 
 ##### Parameters Explained
 
-- --config: Specify the path to your custom configuration file (config.json) using the --config flag. This file will include various network settings for the ICON chain.
+- <b>--config:</b> Specify the path to your custom configuration file (config.json) using the --config flag. This file will include various network settings for the ICON chain.
 
   Example Config:
 
@@ -78,12 +78,12 @@ with various ICON blockchain
   }
   ```
 
-- --genesis: Provide the path to your custom genesis file using the --genesis flag. The genesis file contains the initial state and configurations for the ICON blockchain.
+- <b>--genesis:</b> Provide the path to your custom genesis file using the --genesis flag. The genesis file contains the initial state and configurations for the ICON blockchain.
 
-- --id: Assign a custom chain ID for your ICON Node using the --id flag. This ID is used to uniquely identify your custom Node.
+- <b>--id:</b> Assign a custom chain ID for your ICON Node using the --id flag. This ID is used to uniquely identify your custom Node.
 
 <Callout type="info" emoji="💡">
-  TIP: If you want to start your icon node for BTP support you can also
+  <b>TIP:</b> If you want to start your icon node for BTP support you can also
   decentralize by adding '--decentralisation' flag
 </Callout>
 
@@ -101,15 +101,15 @@ dive chain icon decentralize --keyPassword 'keypassword' --keystorePath 'path to
 
 ##### Parameters Explained
 
-- --keyPassword: Provide the password for your keystore file using the --keyPassword flag. This password is used to unlock the keystore file during the decentralization process.
+- <b>--keyPassword:</b> Provide the password for your keystore file using the --keyPassword flag. This password is used to unlock the keystore file during the decentralization process.
 
-- --keystorePath: Specify the path to your keystore file using the --keystorePath flag. The keystore file contains the private key required for decentralization.
+- <b>--keystorePath:</b> Specify the path to your keystore file using the --keystorePath flag. The keystore file contains the private key required for decentralization.
 
-- --nid: Assign the network ID (NID) of your ICON node using the --nid flag. The NID uniquely identifies your ICON network.
+- <b>--nid:</b> Assign the network ID (NID) of your ICON node using the --nid flag. The NID uniquely identifies your ICON network.
 
-- --nodeEndpoint: Provide the endpoint address of your already running ICON node using the --nodeEndpoint flag. This endpoint allows DIVE CLI to interact with the existing ICON node.
+- <b>--nodeEndpoint:</b> Provide the endpoint address of your already running ICON node using the --nodeEndpoint flag. This endpoint allows DIVE CLI to interact with the existing ICON node.
 
-- --serviceName: Assign a custom container name for the decentralized ICON node using the --serviceName flag. This name will be used to identify the container during the decentralization process.
+- <b>--serviceName:</b> Assign a custom container name for the decentralized ICON node using the --serviceName flag. This name will be used to identify the container during the decentralization process.
 
 After executing the command, DIVE CLI will initiate the decentralization process for your existing ICON node. Please wait for the process to complete, as this may take some time depending on the size of your blockchain and network.
 
@@ -124,7 +124,7 @@ dive chain eth
 After running the command, DIVE CLI will automatically start the ETH node and handle the necessary initialization processes. Please wait for the ETH node to fully initialize, which may take a few moments.
 
 <Callout type="info" emoji="💡">
-  TIP: DIVE cli also supports hardhat. You can start an hardhat Node by running
+  <b>TIP:</b> DIVE cli also supports hardhat. You can start an hardhat Node by running
   the command ``` dive chain hardhat ```
 </Callout>
 
@@ -137,29 +137,28 @@ dive bridge btp --chainA icon --chainB eth
 ```
 
 <Callout type="info" emoji="💡">
-  <b>
-    Tip: By default, the bridge flag is set to false which uses BMV for BTPBlock
+  
+    <b>TIP:</b> By default, the bridge flag is set to false which uses BMV for BTPBlock
     . If you need an BMV for Bridge , add the `--bridge` flag to the command.
-  </b>
+
 </Callout>
 
 The above command automates several essential tasks to configure and initialise the local environment:
 
-- Spinning up ICON and Ethereum Nodes: DIVE automatically starts and configures the ICON and Ethereum nodes required for your local environment.
+- <b>Spinning up ICON and Ethereum Nodes:</b> DIVE automatically starts and configures the ICON and Ethereum nodes required for your local environment.
 
-- Installing Required npm Dependencies: DIVE takes care of installing all the necessary npm dependencies for smooth operation.
+- <b>Installing Required npm Dependencies:</b> DIVE takes care of installing all the necessary npm dependencies for smooth operation.
 
-- Enabling BTP Block on ICON Local Network: By registering the node as a PRep and decentralizing the network, DIVE enables BTP block functionality on the ICON local network.
+- <b>Enabling BTP Block on ICON Local Network:</b> By registering the node as a PRep and decentralizing the network, DIVE enables BTP block functionality on the ICON local network.
 
-- Deploying Contracts for BTP: DIVE automatically builds and deploys the required smart contracts (BMC, BMV, xCall & sample dApp) for BTP functionality on both the ICON and Ethereum chains.
+- <b>Deploying Contracts for BTP:</b> DIVE automatically builds and deploys the required smart contracts (BMC, BMV, xCall & sample dApp) for BTP functionality on both the ICON and Ethereum chains.
 
-- Starting the Relay: The relay image is built and launched, actively monitoring both the ICON and Ethereum chains to facilitate seamless message transfer between them.
+- <b>Starting the Relay:</b> The relay image is built and launched, actively monitoring both the ICON and Ethereum chains to facilitate seamless message transfer between them.
 
 <Callout type="info" emoji="💡">
-  <b>
-    Tip: Also you can setup a BTP bridge between (Icon-Icon) by running followng
+  <b>TIP:</b> Also you can setup a BTP bridge between (Icon-Icon) by running followng
     command `dive bridge btp --chainA icon --chainB icon`
-  </b>
+
 </Callout>
 
 Once the process completes, your local environment with the ICON and Ethereum chains connected via the BTP bridge will be ready for testing and development.
