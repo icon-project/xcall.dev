@@ -31,6 +31,15 @@ module.exports = {
         'screen-2/3': '66vh',
         'screen-1/2': '50vh',
       },
+      keyframes: {
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+      },
+      animation: {
+        "fade-in": "fade-in 1s ease-out",
+      }
     },
   },
   plugins: [],
