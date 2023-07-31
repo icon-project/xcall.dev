@@ -1,18 +1,5 @@
 {
-  "-- WELCOME": {
-    "type": "separator",
-    "title": "WELCOME"
-  },
-  "index": {
-    "title": "Home",
-    "theme": {
-      "layout": "raw"
-    }
-  },
-  "-- XCALL": {
-    "type": "separator",
-    "title": "🔀 XCALL"
-  },
+ 
   "what-is-xcall": {
     "title": "What is xCall?",
     "theme": {
