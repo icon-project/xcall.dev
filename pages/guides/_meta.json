@@ -1,20 +1,26 @@
 {
-    "sending-a-message": {
-        "title": "Sending a message",
-        "theme": {
-            "layout": "default"
-          }
-    },
-    "receiving-a-message": {
-        "title": "Receiving a message",
-        "theme": {
-            "layout": "default"
-          }
-    },
-    "error-handling": {
-        "title": "Error Handling",
-        "theme": {
-            "layout": "default"
-          }
+  "sending-a-message": {
+    "title": "Sending a message",
+    "theme": {
+      "layout": "default"
     }
+  },
+  "receiving-a-message": {
+    "title": "Receiving a message",
+    "theme": {
+      "layout": "default"
+    }
+  },
+  "error-handling": {
+    "title": "Error Handling",
+    "theme": {
+      "layout": "default"
+    }
+  },
+  "build-a-cross-chain-voting-dapp": {
+    "title": "Build a cross chain voting dApp",
+    "theme": {
+      "layout": "default"
+    }
+  }
 }
