@@ -1,21 +1,78 @@
 import React from 'react';
 import Image from 'next/image';
-
+import { useTheme } from 'next-themes';
+import { useEffect } from 'react';
 
 export const Homepage = () => {
-  
+  const {systemTheme, theme, setTheme} = useTheme();
+
+  useEffect(() => {
+    // Use the system theme as the initial theme when 'theme' is set to 'system'
+    if (theme === 'system' && systemTheme) {
+      setTheme(systemTheme);
+    }
+  }, [theme, systemTheme, setTheme]);
+
+  const renderDesktopBgChanger = () => {
+        const currentTheme = theme === 'system' ? systemTheme : theme;       
+        if(currentTheme === 'dark') {
+            return (
+                <Image src='/images/xcall-dark.jpg' alt='Discover and integrate with xcall' height='1080' width='1920' />
+            )
+        } else {
+            return (
+                <Image src='/images/xcall-light.jpg' alt='Discover and integrate with xcall' height='1080' width='1920' />
+            )
+        }
+    }
+
+    const renderMobileBgChanger = () => {
+        const currentTheme = theme === 'system' ? systemTheme : theme;       
+        if(currentTheme === 'dark') {
+            return (
+                <Image src='/images/xcall-mobile-dark.jpg' alt='Discover and integrate with xcall' height='1596' width='1290' />
+            )
+        } else {
+            return (
+                <Image src='/images/xcall-mobile-light.jpg' alt='Discover and integrate with xcall' height='1596' width='1290' />
+            )
+        }
+    }
   
   return (
-    <main className="font-montserrat leading-10 max-w-7xl mx-auto space-y-20 dark:text-zinc-300 text-zinc-700 border dark:border-black/10 border-white px-4 py-10">
-        <div className='absolute top-0 right-0 w-[1250px] opacity-20'>
-            <Image className="absolute dark:block hidden" src='/images/xcall-dark.jpg' alt='Discover and integrate with xcall' height='1080' width='1920' />
-            <Image className="absolute block dark:hidden" src='/images/xcall-light.jpg' alt='Discover and integrate with xcall' height='1080' width='1920' />
+    <main className="font-montserrat max-w-7xl mx-auto space-y-20 dark:text-zinc-300 text-zinc-700 border dark:border-black/0 border-white/0 ">
+        <div className='hidden sm:block absolute top-[90px] animate-fade-in -z-10'>
+            {renderDesktopBgChanger()}
         </div>
-        <section className="pt-20 relative px-4">
-            <h1 className="tracking-widest text-[36px] sm:text-[70px] lg:text-[100px] font-bold sm:leading-[70px] lg:leading-[100px] font-lemon relative z-1 dark:text-white text-black">xcall service</h1>
-            <h2 className="w-full lg:w-3/4 text-[20px] sm:text-[34px] lg:text-[34px] pt-4 leading-6 sm:leading-10">ONE MESSAGING STANDARD FOR ALL CROSS CHAIN COMMUNICATION</h2>
-            <a href='/getting-started'><button className='bg-[#26C4D5] dark:bg-[#26C4D5]/80 px-4 py-2 lg:px-8 rounded-full text-zinc-100 dark:text-zinc-300 text-xl lg:text-3xl mt-4'>Get Started →</button></a>
+        <div className='sm:hidden block h-[100px]'>
             
+        </div>
+        <div className='sm:hidden block absolute top-[0px] animate-fade-in -z-10'>
+            {renderMobileBgChanger()}
+        </div>
+        <section className="py-4 md:py-20 relative px-4 sm:px-16">
+            <h1 className="text-center sm:text-left tracking-widest text-[9vw] sm:text-[50px] lg:text-[70px] font-bold font-lemon relative z-1 dark:text-white text-black">xcall service</h1>
+            <h2 className="hidden sm:block w-7/12 text-[14px] md:text-[16px] lg:text-[22px] ">One messaging standard for all cross chain communication</h2>
+
+            <div className='relative w-full sm:w-[400px] text-white text-[14px] my-4'>    
+                <a className='peer' href='https://iconfoundation.notion.site/xCall-Incentivized-Testnet-Program-Phase-1-9d16a7bc2b124b348a78896f378ee316'>
+                    <button className='relative rounded-full bg-[#92BFC4] dark:bg-[#324648] px-4 py-2 uppercase w-full text-right flex flex-row justify-center'>
+                        <div className='w-1/2'></div>
+                        <div className=''>
+                            Test and earn ↗
+                        </div>
+                    </button>
+                </a>
+                <div className='py-4 text-[#4A3D61] dark:text-white absolute left-[230px] text-[14px] opacity-0 sm:opacity-100 hidden peer-hover:block transition-all sm:animate-fade-in'>
+                    <h3 className='font-semibold'>xCall Incentivized Testnet Program</h3>
+                    <p className='w-[400px]'>Join us in a series of competitive tasks and guided challenges with ~850k ICX rewards!</p>
+                </div>
+                <a href='/getting-started'>
+                    <button className='whitespace-nowrap absolute left-0 top-0 rounded-full bg-[#00B8CC] px-6 py-2 uppercase w-1/2 text-center'>
+                        Get Started
+                    </button>
+                </a>
+            </div>                      
         </section>
         
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 leading-normal px-4 ">
@@ -60,6 +117,3 @@ export const Homepage = () => {
 };
 
 export default Homepage;
-
-
-
