@@ -55,6 +55,8 @@ const config: DocsThemeConfig = {
           name="og:description"
           content="A cross-chain messaging interface deployable on any protocol"
         />
+        <meta property="twitter:title" content={title && title !== 'Index' ? title + ' – xCall' : ''}></meta>
+        <meta property="twitter:description" content="A cross-chain messaging interface deployable on any protocol"></meta>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/images/link-preview.jpg" />
         <meta name="twitter:site:domain" content="xcall.dev" />
@@ -64,6 +66,7 @@ const config: DocsThemeConfig = {
           content={title && title !== 'Index' ? title + ' – xCall' : ''}
         />
         <meta name="og:image" content="/images/link-preview.jpg" />
+        <meta property="og:url" content="https://xcall.dev"></meta>
         <meta name="apple-mobile-web-app-title" content="xCall" />
       </>
     )
@@ -92,7 +95,7 @@ const config: DocsThemeConfig = {
   },
   banner: {
     key: 'banner-2',
-    text: <span><a href="https://iconfoundation.notion.site/Testnet-Challenges-bc1b7de910894307970841d64ea9548f" className='inline-block underline'>🏆 Earn ICX token rewards with xCall Incentivized Testnet Challenges →</a></span>
+    text: <span><a href="https://iconfoundation.notion.site/Testnet-Challenges-bc1b7de910894307970841d64ea9548f" className='inline-block underline'>🟢 LIVE NOW - Earn ICX token rewards with xCall Incentivized Testnet Challenges →</a></span>
   },
   navigation: {
     prev: true,
@@ -100,7 +103,7 @@ const config: DocsThemeConfig = {
   },
   footer: {
     text: (
-      <div className="flex flex-col items-center w-full sm:items-start">
+      <div className="relative z-40 flex flex-col items-center w-full sm:items-start">
         <div>
           <a
             className="flex items-center gap-1 text-current"

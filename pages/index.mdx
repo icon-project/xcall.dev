@@ -1,79 +1,108 @@
 import React from 'react';
 import Image from 'next/image';
-
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export const Homepage = () => {
-  
-  
-  return (
-    <main className="font-montserrat leading-10 max-w-7xl mx-auto space-y-20 dark:text-zinc-300 text-zinc-700 border dark:border-black/10 border-white px-4 py-10">
-        <div className='absolute top-0 right-0 w-[1250px] opacity-20'>
-            <Image className="absolute dark:block hidden" src='/images/xcall-dark.jpg' alt='Discover and integrate with xcall' height='1080' width='1920' />
-            <Image className="absolute block dark:hidden" src='/images/xcall-light.jpg' alt='Discover and integrate with xcall' height='1080' width='1920' />
+  const {systemTheme, theme, setTheme} = useTheme();
+  const [backgroundImage, setBackgroundImage] = useState('');
+  const [mobileBackgroundImage, setMobileBackgroundImage] = useState('');
+
+useEffect(() => {
+// Use the system theme as the initial theme when 'theme' is set to 'system'
+if (theme === 'system' && systemTheme) {
+setTheme(systemTheme);
+}
+
+    const currentTheme = theme === 'system' ? systemTheme : theme;
+    if (currentTheme === 'dark') {
+      setBackgroundImage('/images/xcall-dark.jpg');
+      setMobileBackgroundImage('/images/xcall-mobile-dark.jpg')
+    } else {
+      setBackgroundImage('/images/xcall-light.jpg');
+      setMobileBackgroundImage('/images/xcall-mobile-light.jpg')
+    }
+
+}, [theme, systemTheme, setTheme]);
+
+return (
+
+<main className="font-montserrat max-w-7xl min-h-none sm:min-h-screen mx-auto space-y-0 mt-20 sm:mt-0 sm:space-y-20 dark:text-zinc-300 text-zinc-700 border dark:border-black/0 border-white/0 ">
+<div className='hidden sm:block absolute top-[90px] animate-fade-in -z-10'>
+<Image src={backgroundImage} alt='Discover and integrate with xcall' height='1080' width='1920' />
+</div>
+<div className='sm:hidden block h-[220px]'>
+
         </div>
-        <section className="pt-20 relative px-4">
-            <h1 className="tracking-widest text-[36px] sm:text-[70px] lg:text-[100px] font-bold sm:leading-[70px] lg:leading-[100px] font-lemon relative z-1 dark:text-white text-black">xcall service.</h1>
-            <h2 className="w-full lg:w-3/4 text-[20px] sm:text-[34px] lg:text-[34px] pt-4 leading-6 sm:leading-10">ONE MESSAGING STANDARD FOR ALL CROSS CHAIN COMMUNICATION</h2>
-            <a href='/getting-started'><button className='bg-[#26C4D5] dark:bg-[#26C4D5]/80 px-4 py-2 lg:px-8 rounded-full text-zinc-100 dark:text-zinc-300 text-xl lg:text-3xl mt-4'>Get Started →</button></a>
-            
+        <div className='sm:hidden block absolute top-[90px] animate-fade-in -z-10'>
+            <Image src={mobileBackgroundImage} alt='Discover and integrate with xcall' height='1080' width='1920' />
+        </div>
+        <section className="py-4 md:pt-20 relative px-4 sm:px-16">
+            <h1 className="text-center sm:text-left tracking-widest text-[9vw] sm:text-[50px] lg:text-[70px] font-bold font-lemon relative z-1 dark:text-white text-black">xcall service</h1>
+            <h2 className="hidden sm:block w-7/12 text-[14px] md:text-[16px] lg:text-[22px] opacity-80">One messaging standard for all cross chain communication</h2>
+
+            <div className='relative w-full sm:w-[400px] text-white text-[14px] my-4'>
+                <a className='peer' href='https://iconfoundation.notion.site/xCall-Incentivized-Testnet-Program-Phase-1-9d16a7bc2b124b348a78896f378ee316'>
+                    <button className='relative rounded-full bg-[#92BFC4] dark:bg-[#324648] px-4 py-2 uppercase w-full text-right flex flex-row justify-center'>
+                        <div className='w-1/2'></div>
+                        <div className=''>
+                            Test and earn ↗
+                        </div>
+                    </button>
+                </a>
+                <div className='py-4 text-[#4A3D61]/80 dark:text-white/80 absolute left-[230px] text-[14px] opacity-0 sm:opacity-100 hidden peer-hover:block transition-all sm:animate-fade-in'>
+                    <h3 className='font-semibold'>xCall Incentivized Testnet Program</h3>
+                    <p className='w-[400px]'>Join us in a series of competitive tasks and guided challenges with ~850k ICX rewards!</p>
+                </div>
+                <a href='/getting-started'>
+                    <button className='whitespace-nowrap absolute left-0 top-0 rounded-full bg-[#00B8CC] px-6 py-2 uppercase w-1/2 text-center'>
+                        Get Started
+                    </button>
+                </a>
+            </div>
         </section>
-        
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 leading-normal px-4 ">
-           
-                <a href='/quickstart/sending-a-message' className="relative hover:border-black dark:hover:border-white border border-transparent transition-all flex flex-col md:flex-row items-start justify-start space-x-0 sm:space-x-6 py-4 px-8 dark:bg-zinc-900 bg-zinc-100 rounded-[30px] h-full">
-                    <div className='w-[100px] absolute opacity-5 sm:opacity-100 top-0 right-0 sm:relative'>
-                        <Image src='/images/users.png' alt='Users of xCall' height='700' width='700'/>
+
+        <section className="grid grid-cols-1 leading-normal px-4 sm:px-16  pb-16 sm:pb-0">
+
+                <a href='/quickstart/sending-a-message' className="relative w-fit hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all flex flex-row items-start justify-start py-4 sm:py-8 px-4 rounded-[30px] h-full">
+                    <div className='w-[45px] relative mr-4'>
+                        <Image src='/images/icon-inbox.svg' alt='Send a message cross-chain' height='700' width='700'/>
                     </div>
                     <div className='flex flex-col items-start justify-center w-full lg:w-[400px]'>
-                        <p className=''>xCall service</p>
-                        <h3 className='font-bold text-xl  dark:text-white text-black'>Send a message cross-chain</h3>
-                        <p className='text-sm'>Detailed process of sending a cross chain encoded message using xCall</p>
-                    </div>            
+                        <h3 className='text-sm md:text-xl  dark:text-white text-black font-lemon'>Send a message cross-chain</h3>
+                        <p className='text-xs opacity-80'>Detailed process of sending a cross chain encoded message using xCall.</p>
+                    </div>
                 </a>
 
-                <a href='/quickstart/setting-up-a-local-environment-with-dive-cli' className="relative hover:border-black dark:hover:border-white border border-transparent transition-all flex flex-col md:flex-row items-start justify-start space-x-0 sm:space-x-6 py-4 px-8 dark:bg-zinc-900 bg-zinc-100 rounded-[30px] h-full">
-                    <div className='w-[100px] absolute opacity-5 sm:opacity-100 top-0 right-0 sm:relative'>
-                        <Image src='/images/devs.png' alt='Devs of xCall' height='700' width='700'/>
+                <a href='/quickstart/setting-up-a-local-environment' className="relative w-fit hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all flex flex-row items-start justify-start py-4 sm:py-8 px-4 rounded-[30px] h-full">
+                    <div className='w-[45px] relative mr-4'>
+                        <Image src='/images/ico-home.svg' alt='Send a message cross-chain' height='700' width='700'/>
                     </div>
                     <div className='flex flex-col items-start justify-center w-full lg:w-[400px]'>
-                        <p className=''>Dive</p>
-                        <h3 className='font-bold text-xl  dark:text-white text-black'>Setup Local Environment Using DIVE Cli</h3>
-                        <p className='text-sm'>This guide will help you get up and running with DIVE CLI, the all-in-one tool designed to simplify blockchain development, set up local environments, and enable seamless cross-chain communication.</p>
-                    </div>            
-                </a>   
-                
-
-
-                <a href='/quickstart/setting-up-a-local-environment' className="relative hover:border-black dark:hover:border-white border border-transparent transition-all flex flex-col md:flex-row items-start justify-start space-x-0 sm:space-x-6 py-4 px-8 dark:bg-zinc-900 bg-zinc-100 rounded-[30px] h-full">
-                    <div className='w-[100px] absolute opacity-5 sm:opacity-100 top-0 right-0 sm:relative'>
-                        <Image src='/images/devs.png' alt='Devs of xCall' height='700' width='700'/>
+                        <h3 className='text-sm md:text-xl  dark:text-white text-black font-lemon'>SET UP YOUR LOCAL ENVIRONMENT</h3>
+                        <p className='text-xs opacity-80'>The first step in this process is to clone the BTP repository to a local folder and install the required depencencies.</p>
                     </div>
-                    <div className='flex flex-col items-start justify-center w-full lg:w-[400px]'>
-                        <p className=''>Local repository</p>
-                        <h3 className='font-bold text-xl  dark:text-white text-black'>Set up your local environment</h3>
-                        <p className='text-sm'>The first step in this process is to clone the BTP repository to a local folder and install the required dependencies.</p>
-                    </div>            
-                </a>   
-
-                <a href='https://iconfoundation.notion.site/xCall-Incentivized-Testnet-Program-Phase-1-9d16a7bc2b124b348a78896f378ee316' className="relative hover:border-black dark:hover:border-white border border-transparent transition-all flex flex-col md:flex-row items-start justify-start space-x-0 sm:space-x-6 py-4 px-8 dark:bg-zinc-900 bg-zinc-100 rounded-[30px] h-full">
-                    <div className='w-[100px] absolute opacity-5 sm:opacity-100 top-0 right-0 sm:relative'>
-                        <Image src='/images/incentivized-testnet.png' alt='Users of xCall' height='700' width='700'/>
-                    </div>
-                    <div className='flex flex-col items-start justify-center w-full lg:w-[400px]'>
-                        <p className=''>Test and Earn</p>
-                        <h3 className='font-bold text-xl  dark:text-white text-black'>xCall Incentivized Testnet Program ↗</h3>
-                        <p className='text-sm'>Join us in a series of competitive tasks and guided challenges with ~850k ICX rewards!</p>
-                    </div>            
                 </a>
-                
+
+                <a href='/quickstart/setting-up-a-local-environment-with-dive-cli' className="relative w-fit hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all flex flex-row items-start justify-start py-4 sm:py-8 px-4 rounded-[30px] h-full">
+                    <div className='w-[45px] relative mr-4'>
+                        <Image src='/images/ico-home.svg' alt='Send a message cross-chain' height='700' width='700'/>
+                    </div>
+                    <div className='flex flex-col items-start justify-center w-full lg:w-[400px]'>
+                        <h3 className='text-sm md:text-xl  dark:text-white text-black font-lemon'>Setup Local Environment Using DIVE Cli</h3>
+                        <p className='text-xs opacity-80'>This guide will help you get up and running with DIVE CLI, the all-in-one tool designed to simplify blockchain development, set up local environments, and enable seamless cross-chain communication.</p>
+                    </div>
+                </a>
+
+
 
         </section>
 
     </main>
-  );
+
+);
 };
 
 export default Homepage;
 
-
-
+;
