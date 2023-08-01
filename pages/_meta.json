@@ -1,6 +1,7 @@
 {
   "index": {
     "title": "Home",
+    "type":"hidden",
     "theme": {
       "layout": "raw"
     }
