@@ -4,7 +4,15 @@ import { Callout } from "nextra/components";
 
 ## Introduction
 
-Welcome to the DIVE Command-Line Interface (CLI), This guide will help you get up and running with DIVE CLI, the all-in-one tool designed to simplify blockchain development, set up local environments, and enable seamless cross-chain communication.
+DIVE is a powerful community-driven tool developed by HugoByte, designed to revolutionize blockchain development and simplify local environment setup. Its core focus is to enable seamless cross-chain communication, connecting developers with various blockchain networks effortlessly. With DIVE CLI, you can easily deploy smart contracts and bridge the gap between IBC-enabled chains, leveraging the strengths of multiple networks.
+
+No more hassles of manual node configuration! DIVE CLI offers an all-in-one solution for smooth BTP network setup, making it accessible even to those new to blockchain development. Embrace a new era of blockchain innovation with DIVE's user-friendly interface and unleash the potential of decentralized applications.
+
+<Callout type="info">
+  <b>NOTE:</b> DIVE is currently in beta. Things may break. We are always looking to improve the tool and add new features, so if you have any issues or ideas please post them to the <a href="https://github.com/HugoByte/DIVE/issues"><b>DIVE issue tracker</b></a>.
+</Callout>
+
+This guide will help you set up your cross-chain devnet with DIVE CLI. It will walk you through the steps of how to set up an ICON node, EVM Hardhat node, and a relay to pass messages between them.
 
 ## Prerequisites
 
@@ -43,7 +51,7 @@ dive chain icon
 
 ```
 
-        <div align='justify'>
+<div align='justify'>
 
 After running the command, DIVE CLI will automatically start the ICON node
 and handle the necessary initialization processes. Please wait for the ICON
@@ -53,7 +61,31 @@ needed. DIVE CLI sets up the ICON node on your local environment, enabling
 you to deploy and test smart contracts, explore transactions, and experiment
 with various ICON blockchain
 
-    </div>
+</div>
+Executing this command will generate 'dive.json,' in working directory which contains service details for the 'icon' chain.
+
+Example dive.json
+
+```
+{
+  "service_name": "icon-node-0",
+  "endpoint_public": "http://127.0.0.1:8090/api/v3/icon_dex",
+  "endpoint": "http://172.16.0.3:9080/api/v3/icon_dex",
+  "keypassword": "gochain",
+  "keystore_path": "keystores/keystore.json",
+  "network": "0x3.icon",
+  "network_name": "icon-0",
+  "nid": "0x3"
+}
+```
+* <b>service_name:</b> The name of the service.
+* <b>endpoint_public:</b> The public endpoint URL for interacting with the service.
+* <b>keypassword:</b> The password used for accessing the service's keystore."
+* <b>keystore_path:</b> The file path for the service's keystore.
+* <b>network:</b> The network ID.
+* <b>network_name:</b> The name of the network.
+* <b>nid:</b> The unique identifier id for the network.  
+
 
 #### Icon with Custom Configuration
 
@@ -128,6 +160,30 @@ After running the command, DIVE CLI will automatically start the ETH node and ha
   the command ``` dive chain hardhat ```
 </Callout>
 
+Executing this command will generate 'dive.json,' in working directory which contains service details for the 'eth' chain.
+
+Example dive.json
+
+```
+{
+  "service_name": "el-1-geth-lighthouse",
+  "endpoint_public": "http://172.16.0.3:8544",
+  "endpoint": "http://172.16.0.5:8545",
+  "keypassword": "password",
+  "keystore_path": "keystores/eth_keystore.json",
+  "network": "0x301824.eth",
+  "network_name": "eth",
+  "nid": "0x301824"
+}
+```
+* <b>service_name:</b> The name of the service.
+* <b>endpoint_public:</b> The public endpoint URL for interacting with the service.
+* <b>keypassword:</b> The password used for accessing the service's keystore."
+* <b>keystore_path:</b> The file path for the service's keystore.
+* <b>network:</b> The network ID.
+* <b>network_name:</b> The name of the network.
+* <b>nid:</b> The unique identifier id for the network.  
+
 ## Setting up Cross chain connection
 
 To start both the ICON and Ethereum chains and establish a BTP bridge between them, run the following command:
@@ -142,6 +198,61 @@ dive bridge btp --chainA icon --chainB eth
     . If you need an BMV for Bridge , add the `--bridge` flag to the command.
 
 </Callout>
+
+Executing above command will generate 'dive.json' in working directory which contains service details for the 'icon' and 'eth' chains.
+
+Example dive.json
+```
+{
+	"bridge": "false",
+	"chains": {
+		"eth": {
+			"block_number": "30",
+			"endpoint": "http://172.16.0.6:8545",
+			"endpoint_public": "http://172.16.0.3:8544",
+			"keypassword": "password",
+			"keystore_path": "keystores/eth_keystore.json",
+			"network": "0x301824.eth",
+			"network_name": "eth",
+			"nid": "0x301824",
+			"service_name": "el-1-geth-lighthouse"
+		},
+		"icon": {
+			"block_number": "242",
+			"endpoint": "http://172.16.0.2:9080/api/v3/icon_dex",
+			"endpoint_public": "http://127.0.0.1:8090/api/v3/icon_dex",
+			"keypassword": "gochain",
+			"keystore_path": "keystores/keystore.json",
+			"network": "0x3.icon",
+			"networkId": "0x1",
+			"networkTypeId": "0x1",
+			"network_name": "icon-0",
+			"nid": "0x3",
+			"service_name": "icon-node-0"
+		}
+	},
+	"contracts": {
+		"eth": {
+			"bmc": "0xB9D7a3554F221B34f49d7d3C61375E603aFb699e",
+			"bmcm": "0xAb2A01BC351770D09611Ac80f1DE076D56E0487d",
+			"bmcs": "0xBFF5cD0aA560e1d1C6B1E2C347860aDAe1bd8235",
+			"bmv": "0x765E6b67C589A4b40184AEd9D9ae7ba40E32F8d4",
+			"dapp": "0x9bE03fF3E1888A216f9e48c68B587A89c5b94CD6",
+			"xcall": "0x5911A6541729C227fAda7D5187ee7518B47fB237"
+		},
+		"icon": {
+			"bmc": "cx14303a14cbfd58b9bcd61b62b786b387f39be25a",
+			"bmv": "cx71337318cf13aa3fd805c75a38f4d5f800cd627c",
+			"dapp": "cx90bc909409ff8ba200b5a866e1bb952c39fa1f4a",
+			"xcall": "cx5dce8a39a49faadee03a02e6b33173aef91d4e67"
+		}
+	},
+	"links": {
+		"dst": "eth",
+		"src": "icon"
+	}
+}
+```
 
 The above command automates several essential tasks to configure and initialise the local environment:
 
@@ -163,3 +274,11 @@ The above command automates several essential tasks to configure and initialise 
 
 Once the process completes, your local environment with the ICON and Ethereum chains connected via the BTP bridge will be ready for testing and development.
 [DIVE CLI](https://github.com/HugoByte/DIVE) simplifies the entire setup, allowing you to focus on developing and testing your decentralized applications with ease. Happy developing.
+
+## Tutorials
+
+If you prefer a video guide, we have a series of tutorials available on YouTube:
+
+- [Tutorial : Dive CLI](https://www.youtube.com/playlist?list=PL5Xd9z-fRL1vKtRlOzIlkhROspSSDeGyG)
+
+Feel free to explore these tutorials to get hands-on experience with DIVE cli.
