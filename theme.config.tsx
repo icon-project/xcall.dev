@@ -19,7 +19,7 @@ const config: DocsThemeConfig = {
       } 
     } else {
       return {
-        title: 'Welcome - xCall Documentation',
+        title: 'Welcome',
       }
     }
   },
@@ -55,7 +55,7 @@ const config: DocsThemeConfig = {
           name="og:description"
           content="A cross-chain messaging interface deployable on any protocol"
         />
-        <meta property="twitter:title" content={title && title !== 'Index' ? title + ' – xCall' : ''}></meta>
+        <meta property="twitter:title" content={title && title !== 'Index' ? title + ' – xCall Documentation' : ''}></meta>
         <meta property="twitter:description" content="A cross-chain messaging interface deployable on any protocol"></meta>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/images/link-preview.jpg" />
@@ -63,7 +63,7 @@ const config: DocsThemeConfig = {
         <meta name="twitter:url" content="https://xcall.dev" />
         <meta
           name="og:title"
-          content={title && title !== 'Index' ? title + ' – xCall' : ''}
+          content={title && title !== 'Index' ? title + ' – xCall Documentation' : ''}
         />
         <meta name="og:image" content="/images/link-preview.jpg" />
         <meta property="og:url" content="https://xcall.dev"></meta>
