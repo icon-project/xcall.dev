@@ -60,7 +60,7 @@ const config: DocsThemeConfig = {
         "@type": "WebPage",
         "@id": "https://xcall.dev/"
       },
-      "datePublished": "2023-01-01",
+      "datePublished": "2023-07-31",
       "dateModified": frontMatter.gitTimestamp,
       "description": "xCall Documentation - A cross-chain messaging interface deployable on any protocol"
     };
