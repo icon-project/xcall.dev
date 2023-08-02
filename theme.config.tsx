@@ -39,14 +39,17 @@ const config: DocsThemeConfig = {
   head: () => {
     const { asPath, defaultLocale, locale } = useRouter()
     const { title, frontMatter } = useConfig()
+    const gitTimestampString = frontMatter.gitTimestamp.toISOString();
+    
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "TechArticle",
-      "headline": "xCall Documentation",
+      "headline": title,
       "image": "https://xcall.dev/images/link-preview.jpg",
       "author": {
         "@type": "Organization",
-        "name": "ICON Foundation"
+        "name": "ICON Foundation",
+        "url": "https://www.icon.foundation/"
       },
       "publisher": {
         "@type": "Organization",
@@ -61,7 +64,7 @@ const config: DocsThemeConfig = {
         "@id": "https://xcall.dev/"
       },
       "datePublished": "2023-07-31",
-      "dateModified": frontMatter.gitTimestamp,
+      "dateModified": gitTimestampString,
       "description": "xCall Documentation - A cross-chain messaging interface deployable on any protocol"
     };
 
