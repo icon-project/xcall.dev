@@ -19,7 +19,7 @@ const config: DocsThemeConfig = {
       } 
     } else {
       return {
-        title: 'Welcome - xCall Documentation',
+        title: 'Welcome',
       }
     }
   },
