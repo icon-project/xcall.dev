@@ -38,8 +38,38 @@ const config: DocsThemeConfig = {
   },
   head: () => {
     const { asPath, defaultLocale, locale } = useRouter()
-    const { title } = useConfig()
- 
+    const { title, frontMatter } = useConfig()
+    const gitTimestampString = frontMatter.gitTimestamp;
+    const realTitle = title !== 'Index' ? title : 'xCall Documentation';
+    
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": realTitle,
+      "image": "https://xcall.dev/images/link-preview.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "ICON Foundation",
+        "url": "https://www.icon.foundation/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "ICON Foundation",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://xcall.dev/images/icon-foundation-logo.svg"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://xcall.dev/"
+      },
+      "datePublished": "2023-07-31",
+      "dateModified": gitTimestampString,
+      "description": "xCall Documentation - A cross-chain messaging interface deployable on any protocol"
+    };
+
+    
     return (
       <>
         <link rel="icon" type="image/png" href="/images/xcall-favicon.ico" />
@@ -68,6 +98,12 @@ const config: DocsThemeConfig = {
         <meta name="og:image" content="/images/link-preview.jpg" />
         <meta property="og:url" content="https://xcall.dev"></meta>
         <meta name="apple-mobile-web-app-title" content="xCall" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
       </>
     )
   },
