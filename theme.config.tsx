@@ -44,7 +44,7 @@ const config: DocsThemeConfig = {
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "TechArticle",
-      "headline": title,
+      "headline": () => {title && title !== 'Index' ? title + ' – xCall Documentation' : 'xCall Documentation'},
       "image": "https://xcall.dev/images/link-preview.jpg",
       "author": {
         "@type": "Organization",
