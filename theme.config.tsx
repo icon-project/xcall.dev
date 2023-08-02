@@ -40,11 +40,12 @@ const config: DocsThemeConfig = {
     const { asPath, defaultLocale, locale } = useRouter()
     const { title, frontMatter } = useConfig()
     const gitTimestampString = frontMatter.gitTimestamp;
+    const realTitle = title !== 'Index' ? title + ' – xCall Documentation' : 'xCall Documentation';
     
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "TechArticle",
-      "headline": () => {title && title !== 'Index' ? title + ' – xCall Documentation' : 'xCall Documentation'},
+      "headline": realTitle,
       "image": "https://xcall.dev/images/link-preview.jpg",
       "author": {
         "@type": "Organization",
