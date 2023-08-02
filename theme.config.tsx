@@ -39,7 +39,7 @@ const config: DocsThemeConfig = {
   head: () => {
     const { asPath, defaultLocale, locale } = useRouter()
     const { title, frontMatter } = useConfig()
-    const gitTimestampString = frontMatter.gitTimestamp.toISOString();
+    const gitTimestampString = frontMatter.gitTimestamp;
     
     const structuredData = {
       "@context": "https://schema.org",
