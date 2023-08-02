@@ -40,7 +40,7 @@ const config: DocsThemeConfig = {
     const { asPath, defaultLocale, locale } = useRouter()
     const { title, frontMatter } = useConfig()
     const gitTimestampString = frontMatter.gitTimestamp;
-    const realTitle = title !== 'Index' ? title + ' – xCall Documentation' : 'xCall Documentation';
+    const realTitle = title !== 'Index' ? title : 'xCall Documentation';
     
     const structuredData = {
       "@context": "https://schema.org",
