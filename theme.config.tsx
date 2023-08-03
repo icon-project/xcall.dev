@@ -108,10 +108,10 @@ const config: DocsThemeConfig = {
     )
   },
   editLink: {
-    text: 'Contribute to this page →'
+    text: 'Contribute directly to this page →'
   },
   feedback: {
-    content: 'Question? Give us feedback →',
+    content: 'Feedback or questions about this page? Post them here →',
     labels: 'feedback'
   },
   logo: () => {
