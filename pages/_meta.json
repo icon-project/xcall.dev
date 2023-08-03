@@ -52,10 +52,10 @@
         }
       }
   },
-  "xCall Homepage": {
-    "title": "xCall Homepage ↗",
+  "btp2-status-monitor": {
+    "title": "✅ BTP2 Status Monitor ↗",
     "type": "page",
-    "href": "https://icon.community/xcall",
+    "href": "https://testnet.btp2.24x365.online/",
     "newWindow": true
   }  
 }
