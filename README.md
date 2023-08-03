@@ -1,23 +1,37 @@
-# Nextra Docs Template 
+<img src="https://www.xcall.dev/images/xcall.svg" width="300">
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
+[![Discord](https://img.shields.io/discord/880651922682560582?logo=discord)](https://discord.gg/b5QvCXJjJM)
+[![Twitter Follow](https://img.shields.io/twitter/follow/helloiconworld?style=social)](https://twitter.com/helloiconworld)
+[![Website](https://img.shields.io/badge/Website-xcall.dev-blue)](https://www.xcall.dev)
 
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
+[![Issues](https://img.shields.io/github/issues/icon-project/xcall.dev)](https://github.com/icon-project/xcall.dev/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/icon-project/xcall.dev)](https://github.com/icon-project/xcall.dev/pulls)
 
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
+# Welcome to XCALL.DEV
 
-## Quick Start
+Welcome to the official documentation site for xCall! 
 
-Click the button to clone this repository and deploy it on Vercel:
+**xCall is a standardized interface designed to simplify cross-chain development by abstracting away the varying technical architectures of underlying protocols.**
 
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
+This documentation serves as a comprehensive guide to using and understanding all aspects of xCall, from setup to advanced features. Whether you're a new user starting your journey or an experienced professional seeking to delve deeper, we've got you covered. We continuously work towards making our documentation as clear and detailed as possible, so you can leverage the full power of xCall. 
 
-## Local Development
+Thank you for choosing xCall, and we hope this documentation aids you in making the most of our interface.
 
-First, run `pnpm i` to install the dependencies.
+## HOW TO RUN XCALL
 
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
+Follow the [quickstart tutorial](https://www.xcall.dev/quickstart) to learn how to setup a local cross-chain environment and send cross-chain messages using xCall.
+* [Setting up a local environment](https://www.xcall.dev/quickstart/setting-up-a-local-environment)
+* [Setting up a local environment with DIVE Cli](https://www.xcall.dev/quickstart/setting-up-a-local-environment-with-dive-cli)
+* [Sending a message](https://www.xcall.dev/quickstart/sending-a-message)
+* [Sending a message with rollback](https://www.xcall.dev/quickstart/sending-a-message-with-rollback)
 
-## License
+## HOW TO COLLABORATE
 
-This project is licensed under the MIT License.
+Each documentation pages offers an opportunity for visitors to provide feedback, ask questions or contribute directly. Look for:
+
+* *Feedback or questions about this page? Post them here →*
+* *Contribute directly to this page →*
+
+We encourage you to take advantage of this feature to help us improve our documentation and make it more accessible to everyone. If you have any questions, please reach out to us on [Discord](https://icon.community/icondiscord/).
+
+
