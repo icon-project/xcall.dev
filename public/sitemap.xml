@@ -32,18 +32,6 @@
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/guides/error-handling</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/guides/receiving-a-message</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/guides/sending-a-message</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
     <loc>http://localhost:3000/quickstart/sending-a-message-with-rollback</loc>
     <changefreq>hourly</changefreq>
   </url>
@@ -57,6 +45,34 @@
   </url>
   <url>
     <loc>http://localhost:3000/quickstart/setting-up-a-local-environment</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/guides/error-handling</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/guides/receiving-a-message</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/guides/sending-a-message</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-1</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-2</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-3</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-4</loc>
     <changefreq>hourly</changefreq>
   </url>
 </urlset>
