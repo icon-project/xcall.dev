@@ -7,7 +7,7 @@ function addPage(page) {
 
   return `  <url>
     <loc>${`${process.env.WEBSITE_URL}${route}`}</loc>
-    <changefreq>hourly</changefreq>
+    <changefreq>weekly</changefreq>
   </url>`
 }
 
