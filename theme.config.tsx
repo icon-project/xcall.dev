@@ -19,7 +19,6 @@ const config: DocsThemeConfig = {
         titleTemplate: '%s – xCall Documentation',
         description: "A cross-chain messaging interface deployable on any protocol",
         openGraph: {
-          title: '%s – xCall Documentation',
           description: "A cross-chain messaging interface deployable on any protocol",
           type: 'website',
           url: 'https://xcall.dev',
