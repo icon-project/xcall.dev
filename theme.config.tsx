@@ -19,7 +19,7 @@ const config: DocsThemeConfig = {
         titleTemplate: '%s – xCall Documentation',
         description: "A cross-chain messaging interface deployable on any protocol",
         openGraph: {
-          title: 'xCall Documentation',
+          title: '%s – xCall Documentation',
           description: "A cross-chain messaging interface deployable on any protocol",
           type: 'website',
           url: 'https://xcall.dev',
@@ -34,8 +34,16 @@ const config: DocsThemeConfig = {
         },
         twitter: {
           handle: '@helloiconworld',
-          site: 'https://twitter.com/helloiconworld',
+          site: 'https://xcall.dev',
           cardType: 'summary_large_image',
+          images: [
+            {
+              url: 'https://xcall.dev/images/link-preview.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'xCall Documentation',
+            }
+          ],
         },
       } 
     } else {
@@ -58,8 +66,16 @@ const config: DocsThemeConfig = {
         },
         twitter: {
           handle: '@helloiconworld',
-          site: 'https://twitter.com/helloiconworld',
+          site: 'https://xcall.dev',
           cardType: 'summary_large_image',
+          images: [
+            {
+              url: 'https://xcall.dev/images/link-preview.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'xCall Documentation',
+            }
+          ],
         },
       }
     }
