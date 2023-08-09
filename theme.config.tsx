@@ -2,6 +2,7 @@ import React from 'react'
 import { DocsThemeConfig, useConfig, useTheme } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+import { NextSeo } from 'next-seo';
 
 const config: DocsThemeConfig = {
   project: {
@@ -15,13 +16,35 @@ const config: DocsThemeConfig = {
     const { asPath } = useRouter()
     if (asPath !== '/') {
       return {
-        titleTemplate: '%s – xCall Documentation'
+        titleTemplate: '%s – xCall Documentation',
+        description: "This example uses more of the available config options.",
+        openGraph: {
+          title: 'xCall Documentation',
+          description: "This example uses more of the available config options.",
+          type: 'website',
+          url: 'https://xcall.dev',
+          images: [
+            {
+              url: 'https://xcall.dev/images/link-preview.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'xCall Documentation',
+            }
+          ],
+        },
+        twitter: {
+          handle: '@helloiconworld',
+          site: 'https://twitter.com/helloiconworld',
+          cardType: 'summary_large_image',
+        },
       } 
     } else {
       return {
         title: 'Welcome',
+        description: "This example uses more of the available config options."
       }
     }
+    
   },
   gitTimestamp: () => {
     const { frontMatter } = useConfig();
@@ -77,26 +100,6 @@ const config: DocsThemeConfig = {
         <meta name="theme-color" content="#fff" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="Content-Language" content="en" />
-        <meta
-          name="description"
-          content="A cross-chain messaging interface deployable on any protocol"
-        />
-        <meta
-          name="og:description"
-          content="A cross-chain messaging interface deployable on any protocol"
-        />
-        <meta property="twitter:title" content={title && title !== 'Index' ? title + ' – xCall Documentation' : ''}></meta>
-        <meta property="twitter:description" content="A cross-chain messaging interface deployable on any protocol"></meta>
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/images/link-preview.jpg" />
-        <meta name="twitter:site:domain" content="xcall.dev" />
-        <meta name="twitter:url" content="https://xcall.dev" />
-        <meta
-          name="og:title"
-          content={title && title !== 'Index' ? title + ' – xCall Documentation' : ''}
-        />
-        <meta name="og:image" content="/images/link-preview.jpg" />
-        <meta property="og:url" content="https://xcall.dev"></meta>
         <meta name="apple-mobile-web-app-title" content="xCall" />
         <script
           type="application/ld+json"
