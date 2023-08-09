@@ -17,10 +17,10 @@ const config: DocsThemeConfig = {
     if (asPath !== '/') {
       return {
         titleTemplate: '%s – xCall Documentation',
-        description: "This example uses more of the available config options.",
+        description: "A cross-chain messaging interface deployable on any protocol",
         openGraph: {
           title: 'xCall Documentation',
-          description: "This example uses more of the available config options.",
+          description: "A cross-chain messaging interface deployable on any protocol",
           type: 'website',
           url: 'https://xcall.dev',
           images: [
@@ -41,7 +41,26 @@ const config: DocsThemeConfig = {
     } else {
       return {
         title: 'Welcome',
-        description: "This example uses more of the available config options."
+        description: "A cross-chain messaging interface deployable on any protocol",
+        openGraph: {
+          title: 'xCall Documentation',
+          description: "A cross-chain messaging interface deployable on any protocol",
+          type: 'website',
+          url: 'https://xcall.dev',
+          images: [
+            {
+              url: 'https://xcall.dev/images/link-preview.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'xCall Documentation',
+            }
+          ],
+        },
+        twitter: {
+          handle: '@helloiconworld',
+          site: 'https://twitter.com/helloiconworld',
+          cardType: 'summary_large_image',
+        },
       }
     }
     
