@@ -2,6 +2,7 @@ import React from 'react'
 import { DocsThemeConfig, useConfig, useTheme } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+import { NextSeo } from 'next-seo';
 
 const config: DocsThemeConfig = {
   project: {
@@ -15,13 +16,69 @@ const config: DocsThemeConfig = {
     const { asPath } = useRouter()
     if (asPath !== '/') {
       return {
-        titleTemplate: '%s – xCall Documentation'
+        titleTemplate: '%s – xCall Documentation',
+        description: "A cross-chain messaging interface deployable on any protocol",
+        openGraph: {
+          description: "A cross-chain messaging interface deployable on any protocol",
+          type: 'website',
+          url: 'https://xcall.dev',
+          images: [
+            {
+              url: 'https://xcall.dev/images/link-preview.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'xCall Documentation',
+            }
+          ],
+        },
+        twitter: {
+          handle: '@helloiconworld',
+          site: 'https://xcall.dev',
+          cardType: 'summary_large_image',
+          images: [
+            {
+              url: 'https://xcall.dev/images/link-preview.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'xCall Documentation',
+            }
+          ],
+        },
       } 
     } else {
       return {
-        title: 'Welcome - xCall Documentation',
+        title: 'Welcome',
+        description: "A cross-chain messaging interface deployable on any protocol",
+        openGraph: {
+          title: 'xCall Documentation',
+          description: "A cross-chain messaging interface deployable on any protocol",
+          type: 'website',
+          url: 'https://xcall.dev',
+          images: [
+            {
+              url: 'https://xcall.dev/images/link-preview.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'xCall Documentation',
+            }
+          ],
+        },
+        twitter: {
+          handle: '@helloiconworld',
+          site: 'https://xcall.dev',
+          cardType: 'summary_large_image',
+          images: [
+            {
+              url: 'https://xcall.dev/images/link-preview.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'xCall Documentation',
+            }
+          ],
+        },
       }
     }
+    
   },
   gitTimestamp: () => {
     const { frontMatter } = useConfig();
@@ -38,8 +95,38 @@ const config: DocsThemeConfig = {
   },
   head: () => {
     const { asPath, defaultLocale, locale } = useRouter()
-    const { title } = useConfig()
- 
+    const { title, frontMatter } = useConfig()
+    const gitTimestampString = frontMatter.gitTimestamp;
+    const realTitle = title !== 'Index' ? title : 'xCall Documentation';
+    
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": realTitle,
+      "image": "https://xcall.dev/images/link-preview.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "ICON Foundation",
+        "url": "https://www.icon.foundation/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "ICON Foundation",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://xcall.dev/images/icon-foundation-logo.svg"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://xcall.dev/"
+      },
+      "datePublished": "2023-07-31",
+      "dateModified": gitTimestampString,
+      "description": "xCall Documentation - A cross-chain messaging interface deployable on any protocol"
+    };
+
+    
     return (
       <>
         <link rel="icon" type="image/png" href="/images/xcall-favicon.ico" />
@@ -47,32 +134,21 @@ const config: DocsThemeConfig = {
         <meta name="theme-color" content="#fff" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="Content-Language" content="en" />
-        <meta
-          name="description"
-          content="A cross-chain messaging interface deployable on any protocol"
-        />
-        <meta
-          name="og:description"
-          content="A cross-chain messaging interface deployable on any protocol"
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/images/link-preview.jpg" />
-        <meta name="twitter:site:domain" content="xcall.dev" />
-        <meta name="twitter:url" content="https://xcall.dev" />
-        <meta
-          name="og:title"
-          content={title && title !== 'Index' ? title + ' – xCall' : ''}
-        />
-        <meta name="og:image" content="/images/link-preview.jpg" />
         <meta name="apple-mobile-web-app-title" content="xCall" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
       </>
     )
   },
   editLink: {
-    text: 'Contribute to this page →'
+    text: 'Contribute directly to this page →'
   },
   feedback: {
-    content: 'Question? Give us feedback →',
+    content: 'Feedback or questions about this page? Post them here →',
     labels: 'feedback'
   },
   logo: () => {
