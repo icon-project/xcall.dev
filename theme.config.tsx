@@ -68,7 +68,7 @@ const config: DocsThemeConfig = {
   },
   primaryHue: {
     dark: 182, 
-    light: 182,
+    light: 188,
   },
   head: () => {
     const { asPath, defaultLocale, locale } = useRouter()
