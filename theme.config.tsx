@@ -31,19 +31,7 @@ const config: DocsThemeConfig = {
             }
           ],
         },
-        twitter: {
-          handle: '@helloiconworld',
-          site: 'https://xcall.dev',
-          cardType: 'summary_large_image',
-          images: [
-            {
-              url: 'https://xcall.dev/images/link-preview.jpg',
-              width: 1200,
-              height: 630,
-              alt: 'xCall Documentation',
-            }
-          ],
-        },
+        
       } 
     } else {
       return {
@@ -54,14 +42,16 @@ const config: DocsThemeConfig = {
           description: "A cross-chain messaging interface deployable on any protocol",
           type: 'website',
           url: 'https://xcall.dev',
-          
+          images: [
+            {
+              url: 'https://xcall.dev/images/link-preview.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'xCall Documentation',
+            }
+          ],
         },
-        twitter: {
-          handle: '@helloiconworld',
-          site: 'https://xcall.dev',
-          cardType: 'summary_large_image',
-          
-        },
+        
       }
     }
     
@@ -121,7 +111,10 @@ const config: DocsThemeConfig = {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="Content-Language" content="en" />
         <meta name="apple-mobile-web-app-title" content="xCall" />
-        <meta name="twitter:image" content="https://xcall.dev/images/link-preview.jpg"></meta>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/images/link-preview.jpg" />
+        <meta name="twitter:site:domain" content="xcall.dev" />
+        <meta name="twitter:url" content="https://xcall.dev" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
