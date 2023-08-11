@@ -2,7 +2,7 @@
 
 ### Prerequisites
 
-For the case of showcasing sending a message with rollback please follow the prerequisites and instructions on the [previous tutorial](sending-a-message-with-xcall.md).
+For the case of showcasing sending a message with rollback please follow the prerequisites and instructions on the [previous tutorial](sending-a-message.md).
 
 ### Rollback
 
@@ -71,7 +71,7 @@ A `RollbackMessage` event will be raised in the source chain when the `_rollback
 > * **Parameters:**
 >   * `_sn` — The serial number of the request
 
-A code example of how to wait for these events on an ICON chain can be seen in the [xcall sample dapp](https://github.com/FidelVe/xcall-sample-dapp) used for this tutorial.
+A code example of how to wait for these events on an ICON chain can be seen in the [DAppProxySampleUtilityFunctions repo](https://github.com/icon-community/DAppProxySampleUtilityFunctions) used for this tutorial.
 
 ```javascript
 async function waitResponseMessageEvent(id, blocksToWait = 5) {

@@ -11,7 +11,7 @@ The simplified lifecycle of an xCall message, only including what is relevant to
 5. If the call executes successfully, a ```CallExecutedEvent``` is emitted.
 6. If an error occurs during execution, and rollback data was included in the original call, an error handling process is initiated, sending a ```ResponseMessage``` Event back to the source chain for state rollback operations. For more information, see [Troubleshooting](/guides/error-handling).
 
-In this process, the dApp developer handles [initiating the cross-chain call](/quickstart/sending-a-message-with-xcall), [responding to events](/guides/receiving-a-message), and [errors](/guides/error-handling).
+In this process, the dApp developer handles [initiating the cross-chain call](../quickstart/sending-a-message#sending-a-message), [responding to events](../quickstart/sending-a-message#fetching-event-in-source-chain), and [errors](/guides/error-handling).
 
 ```sendCallMessage``` is a ```Payable``` method and requires a fee. For more information, see [Handling Fees](/explanations/fees).
 

@@ -116,10 +116,10 @@ To send a message using xCall you sign a transaction calling the `sendCallMessag
 >   * `_rollback` — (Optional) The data for restoring the caller state when an error occurred
 > * **Returns:** The serial number of the request
 
-When the `xcall` contract on the source chain receives the call request message, it sends the `_data` to the [BTP address](../../cross-chain-communication/blockchain-transmission-protocol-btp/btp-address.md) `_to` on the destination chain.
+When the `xcall` contract on the source chain receives the call request message, it sends the `_data` to the [BTP address](https://docs.icon.community/cross-chain-communication/blockchain-transmission-protocol-btp/btp-address) `_to` on the destination chain.
 
 * The `_data` param is an arbitrary payload, the xCall interface doesn't care about what you are sending, it leaves the encoding and decoding of this data to the Dapp that you are developing, for example it can be a hex encoded string, or a hex encoded number, etc.
-* The `_to` param is a [BTP formatted address](../../cross-chain-communication/blockchain-transmission-protocol-btp/btp-address.md) of the callee contract which receives the `_data` payload on the destination chain.
+* The `_to` param is a [BTP formatted address](https://docs.icon.community/cross-chain-communication/blockchain-transmission-protocol-btp/btp-address) of the callee contract which receives the `_data` payload on the destination chain.
 * The `_rollback` parameter is for handling error cases. If the `_rollback` parameter is not null, then the source chain will receive a response message back regardless of whether the destination chain execution of the message request fails. For more information, see [Error Handling](https://github.com/icon-project/IIPs/blob/master/IIPS/iip-52.md#error-handling).
 
 Using the `icon-sdk-js` we can send the signed transaction invoking the `sendCallMessage` method of the xcall contract as shown in the following example from the `index.js` file of the sample repository given at the intro of this tutorial.
@@ -255,7 +255,7 @@ This method is payable, and dApps need to call this method with proper fees. dAp
 
 > **`@External(readonly=true) BigInteger getFee(String _net, boolean _rollback)`**
 >
-> Gets the fee for delivering a message to the _net. If the sender is going to provide rollback data, the _rollback param should set as true. The returned fee is the sum of the protocol fee and the relay fee.
+> Gets the fee for delivering a message to the \_net. If the sender is going to provide rollback data, the \_rollback param should set as true. The returned fee is the sum of the protocol fee and the relay fee.
 >
 > * **Parameters:**
 >   * `_net` — The network address
@@ -339,7 +339,7 @@ The call will respond with an error status of `Pending` or `Executing` until the
 
 The `CallMessage` event on the destination chain can be fetched to verify that the xcall interface on the destination chain has a new message that needs to be fetched.
 
-> **`@EventLog(indexed=3) void CallMessage(String _from, String _to, BigInteger _sn, BigInteger _reqId)`**
+> **`@EventLog(indexed=3) void CallMessage(String _from, String _to, BigInteger _sn, BigInteger _reqId, byte[] _data)`**
 >
 > Notifies the user that a new call message has arrived.
 >
@@ -348,6 +348,7 @@ The `CallMessage` event on the destination chain can be fetched to verify that t
 >   * `_to` — A string representation of the callee address
 >   * `_sn` — The serial number of the request from the source
 >   * `_reqId` — The request id of the destination chain
+>   * `_data` — The calldata
 
 Similar as the process of listening to the `CallMessageSent` event on the origin chain, we now wait for the `CallMessage` event on the destination chain.
 
@@ -396,10 +397,11 @@ async function main() {
     const xcallEvmContract = getXcallContractEVM();
     // console.log("xcall contract on evm chain:", xcallEvmContract);
 
-    // get callMessageSent event on evm chain
+    // get callMessage event on evm chain
     const callMessageFilters = xcallEvmContract.filters.CallMessage(
       btpAddressSource,
-      EVM_DAPP_ADDRESS
+      EVM_DAPP_ADDRESS,
+      parsedCallMessageSentEvent["_sn"]
     );
     console.log("callMessageFilters:", callMessageFilters);
 
@@ -459,19 +461,21 @@ Once you have verified that the event has been raised in the destination chain, 
 
 This transaction is being done by calling the `executeCall` method in the xCall contract on the destination chain:
 
-> **`@External void executeCall(BigInteger _reqId)`**
+> **`@External void executeCall(BigInteger _reqId, byte[] _data)`**
 >
 > Executes the requested call message.
 >
-> * **Parameters:** `_reqId` — The request id
+> * **Parameters:**
+>   * `_reqId` — The request id
+>   * `_data` — The calldata
 
 The `_reqId` is the unique identifier of the message request on the destination chain, we get this value in the `callMessage` event on the destination chain (the previous step).
 
 ```javascript
-async function executeCall(reqId) {
+async function executeCall(reqId, data) {
   try {
     const contract = getXcallContractEVM();
-    return await sendSignedTxEVM(contract, "executeCall", reqId);
+    return await sendSignedTxEVM(contract, "executeCall", reqId, data);
   } catch (e) {
     console.log("error running executeCall");
     console.log(e);
@@ -697,4 +701,4 @@ Hello this is xCall live!
 * End-to-end demonstration of BTP containing xCall: [https://github.com/icon-project/btp2/tree/main/e2edemo](https://github.com/icon-project/btp2/tree/main/e2edemo)
 * xCall Standard: [https://github.com/icon-project/IIPs/blob/master/IIPS/iip-52.md](https://github.com/icon-project/IIPs/blob/master/IIPS/iip-52.md)
 * IBC on ICON: [https://github.com/icon-project/IBC-Integration](https://github.com/icon-project/IBC-Integration)
-* [xCall testnet contracts](../../cross-chain-communication/blockchain-transmission-protocol-btp/)
+* [xCall testnet contracts](https://docs.icon.community/cross-chain-communication/blockchain-transmission-protocol-btp)
