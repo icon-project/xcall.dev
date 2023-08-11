@@ -1,3 +1,7 @@
+---
+description: This is how you handle errors with xCall.
+---
+
 # Error Handling
 
 If an error occurs during the execution of the call request on the destination chain, and a rollback parameter was provided in the initial `sendCallMessage` method, the xCall contract on the source chain emits a `RollbackMessage` event. This event is triggered when an error occurs on the destination chain and a rollback operation is needed. The `RollbackMessage` event includes the serial number of the original request that needs to be rolled back.

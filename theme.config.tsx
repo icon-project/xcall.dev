@@ -14,10 +14,11 @@ const config: DocsThemeConfig = {
   docsRepositoryBase: 'https://github.com/icon-project/xcall.dev/tree/main/',
   useNextSeoProps() {
     const { asPath } = useRouter()
+    const { title, frontMatter } = useConfig()
     if (asPath !== '/') {
       return {
         titleTemplate: '%s – xCall Documentation',
-        description: "A cross-chain messaging interface deployable on any protocol",
+        description: frontMatter.description,
         openGraph: {
           description: "A cross-chain messaging interface deployable on any protocol",
           type: 'website',
