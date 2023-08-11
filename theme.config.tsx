@@ -106,7 +106,7 @@ const config: DocsThemeConfig = {
     
     return (
       <>
-        <link rel="icon" type="image/png" href="/images/xcall-favicon.ico" />
+        <link rel="icon" type="image/png" href="/images/xcall-favicon.ico" hrefLang="en" />
         <meta name="msapplication-TileColor" content="#fff" />
         <meta name="theme-color" content="#fff" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

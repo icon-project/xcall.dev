@@ -4,7 +4,7 @@ import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <main className="font-montserrat">
+    <main lang="en" className="font-montserrat">
       <Component {...pageProps} />
       <Analytics />
     </main>
