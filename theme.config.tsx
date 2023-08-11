@@ -14,10 +14,11 @@ const config: DocsThemeConfig = {
   docsRepositoryBase: 'https://github.com/icon-project/xcall.dev/tree/main/',
   useNextSeoProps() {
     const { asPath } = useRouter()
+    const { title, frontMatter } = useConfig()
     if (asPath !== '/') {
       return {
         titleTemplate: '%s – xCall Documentation',
-        description: "A cross-chain messaging interface deployable on any protocol",
+        description: frontMatter.description,
         openGraph: {
           description: "A cross-chain messaging interface deployable on any protocol",
           type: 'website',
@@ -105,7 +106,7 @@ const config: DocsThemeConfig = {
     
     return (
       <>
-        <link rel="icon" type="image/png" href="/images/xcall-favicon.ico" />
+        <link rel="icon" type="image/png" href="/images/xcall-favicon.ico" hrefLang="en" />
         <meta name="msapplication-TileColor" content="#fff" />
         <meta name="theme-color" content="#fff" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
