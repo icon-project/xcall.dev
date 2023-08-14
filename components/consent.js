@@ -15,16 +15,11 @@ export default function Consent(){
         ad_storage: 'granted',
         analytics_storage: 'granted',
       });
-      console.log('accepting cookies');
-    };
-    const closeP = () => {
-      setConsent(true);
-      console.log('closing');
+      window.location.reload();
     };
     const denyCookie = () => {
       setConsent(true);
       setCookie('localConsent', 'false', { maxAge: 60 * 60 * 24 * 365 });
-      console.log('denying cookie');
     };
     if (consent === true) {
       return null;
@@ -37,7 +32,7 @@ export default function Consent(){
                          bg-gray-700 rounded-lg shadow`}>
 
             <div className='text-center'>
-                <Link href="/privacy-policy#cookies-and-web-beacons"><p>We use <span className='font-bold text-sky-400'>cookies</span> on our site.</p></Link>
+                <Link href="/privacy-policy#cookies-and-web-beacons"><p className='text-white'>We use <span className='font-bold text-xteal'>cookies</span> on our site.</p></Link>
             </div>
 
             
