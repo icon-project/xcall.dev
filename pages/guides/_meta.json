@@ -2,25 +2,29 @@
   "sending-a-message": {
     "title": "Sending a message",
     "theme": {
-      "layout": "default"
+      "layout": "default",
+      "breadcrumb": true
     }
   },
   "receiving-a-message": {
     "title": "Receiving a message",
     "theme": {
-      "layout": "default"
+      "layout": "default",
+      "breadcrumb": true
     }
   },
   "error-handling": {
     "title": "Error Handling",
     "theme": {
-      "layout": "default"
+      "layout": "default",
+      "breadcrumb": true
     }
   },
   "build-a-cross-chain-voting-dapp": {
     "title": "Build a cross chain voting dApp",
     "theme": {
-      "layout": "default"
+      "layout": "default",
+      "breadcrumb": true
     }
   }
 }
