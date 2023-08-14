@@ -16,6 +16,10 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>http://localhost:3000/privacy-policy</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>http://localhost:3000/quickstart</loc>
     <changefreq>weekly</changefreq>
   </url>
@@ -32,18 +36,6 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/guides/error-handling</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/guides/receiving-a-message</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/guides/sending-a-message</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>http://localhost:3000/quickstart/sending-a-message-with-rollback</loc>
     <changefreq>weekly</changefreq>
   </url>
@@ -57,6 +49,18 @@
   </url>
   <url>
     <loc>http://localhost:3000/quickstart/setting-up-a-local-environment</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/guides/error-handling</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/guides/receiving-a-message</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/guides/sending-a-message</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
