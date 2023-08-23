@@ -7,7 +7,7 @@
         }
     },
     "setting-up-a-local-environment-with-dive-cli": {
-        "title": "Setting up a local environment with DIVE Cli",
+        "title": "Setting up a local environment with DIVE CLI",
         "theme": {
             "layout": "default",
             "breadcrumb": true
