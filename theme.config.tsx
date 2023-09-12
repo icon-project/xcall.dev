@@ -150,7 +150,7 @@ const config: DocsThemeConfig = {
   },
   banner: {
     key: 'banner-2',
-    text: <span><a href="https://iconfoundation.notion.site/Testnet-Challenges-bc1b7de910894307970841d64ea9548f" className='inline-block underline'>🟢 LIVE NOW - Earn ICX token rewards with xCall Incentivized Testnet Challenges →</a></span>
+    text: <span><a href="https://iconfoundation.notion.site/xCall-Incentivized-Testnet-Program-Phase-1-9d16a7bc2b124b348a78896f378ee316" className='inline-block underline'>⚪️ REVIEWING SUBMISSIONS - xCall Incentivized Testnet →</a></span>
   },
   navigation: {
     prev: true,
