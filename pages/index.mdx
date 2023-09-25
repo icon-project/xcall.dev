@@ -31,22 +31,22 @@ setTheme(systemTheme);
 
 return (
 
-<main className="font-montserrat max-w-7xl min-h-none sm:min-h-screen mx-auto  mt-20 sm:mt-0 dark:text-zinc-300 text-zinc-700 border dark:border-black/0 border-white/0 ">
-<div className='hidden sm:block absolute top-[90px] animate-fade-in -z-10 '>
-    <Image src={backgroundImage} alt='Discover and integrate with xcall' height='1080' width='1920' />
-</div>
-<div className='sm:hidden block h-[220px]'>
+    <main className="font-montserrat max-w-7xl min-h-none sm:min-h-screen mx-auto mt-20 sm:mt-0 dark:text-zinc-300 text-zinc-700 border dark:border-black/0 border-white/0 ">
+        <div className='hidden lg:block absolute top-[90px] animate-fade-in -z-10 '>
+            <Image src={backgroundImage} alt='Discover and integrate with xcall' height='1080' width='1920' />
+        </div>
+        <div className='lg:hidden block h-[230px] sm:h-[300px]'>
 
         </div>
-        <div className='sm:hidden block absolute top-[90px] animate-fade-in -z-10 w-full left-0'>
+        <div className='lg:hidden block absolute top-[90px] animate-fade-in -z-10 w-full sm:w-2/3 left-0 sm:right-0 sm:left-auto '>
             <Image src={mobileBackgroundImage} alt='Discover and integrate with xcall' height='1596' width='1290' />
         </div>
-        <section className="md:pt-32 relative px-4 sm:px-16">
-            <h2  style={{ pointerEvents: "none", cursor: "default" }} className="text-[22px] md:text-[16px] lg:text-[22px] opacity-60 text-xpurple dark:text-white">Extend your dApp across multiple blockchains with</h2>
-            <h1 className="text-center sm:text-left tracking-widest text-[9vw] sm:text-[50px] lg:text-[70px] font-light font-lemon relative z-1 dark:text-white text-xpurple whitespace-nowrap"><span className='font-medium'>One</span> Standard</h1>
-            <h2  style={{ pointerEvents: "none", cursor: "default" }} className="text-[22px] md:text-[16px] lg:text-[34px] opacity-80 text-xpurple -translate-y-6 dark:text-white">for cross-chain messages</h2>
+        <section className="md:pt-32 relative px-4 lg:px-16 ">
+            <h2  style={{ pointerEvents: "none", cursor: "default" }} className="text-[16px] lg:text-[22px] opacity-60 text-xpurple dark:text-white hidden sm:block">Extend your dApp across multiple blockchains with</h2>
+            <h1 className="text-center sm:text-left tracking-widest text-[12vw] sm:text-[50px] lg:text-[70px] font-light font-lemon relative z-1 dark:text-white text-xpurple "><span className='font-medium'>One</span> Standard</h1>
+            <h2  style={{ pointerEvents: "none", cursor: "default" }} className="text-center sm:text-left text-[22px] md:text-[16px] lg:text-[34px] opacity-80 text-xpurple -translate-y-0 lg:-translate-y-6 dark:text-white border ">for cross-chain messages</h2>
 
-            <div className='relative w-full sm:w-[450px] text-white text-[16px] my-4 -translate-y-4'>
+            <div className='relative w-full sm:w-[450px] text-white text-[13px] md:text-[16px] my-8 lg:my-4 -translate-y-0 sm:-translate-y-4'>
                 <a className='peer !no-underline' href='/quickstart'>
                     <button className='relative rounded-full bg-[#92BFC4] dark:bg-[#324648] hover:opacity-90 px-4 py-2 uppercase w-full text-right flex flex-row justify-center'>
                         <div className='w-1/2'></div>
@@ -67,7 +67,7 @@ return (
             </div>
         </section>
 
-        <section className="w-full lg:w-2/3 pl-[296px] -translate-y-4 space-y-2">
+        <section className="w-full lg:w-2/3 pl-[14px] sm:pl-[36px] lg:pl-[296px] -translate-y-4 space-y-2">
 
             <a className='flex !no-underline group transition-all duration-500 relative'> 
                 <div className='w-[28px] relative mr-0 group-hover:mr-2 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
