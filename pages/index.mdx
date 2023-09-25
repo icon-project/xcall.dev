@@ -31,26 +31,27 @@ setTheme(systemTheme);
 
 return (
 
-<main className="font-montserrat max-w-7xl min-h-none sm:min-h-screen mx-auto space-y-0 mt-20 sm:mt-0 sm:space-y-10 dark:text-zinc-300 text-zinc-700 border dark:border-black/0 border-white/0 ">
-<div className='hidden sm:block absolute top-[90px] animate-fade-in -z-10'>
+<main className="font-montserrat max-w-7xl min-h-none sm:min-h-screen mx-auto  mt-20 sm:mt-0 dark:text-zinc-300 text-zinc-700 border dark:border-black/0 border-white/0 ">
+<div className='hidden sm:block absolute top-[90px] animate-fade-in -z-10 '>
     <Image src={backgroundImage} alt='Discover and integrate with xcall' height='1080' width='1920' />
 </div>
 <div className='sm:hidden block h-[220px]'>
 
         </div>
-        <div className='sm:hidden block absolute top-[90px] animate-fade-in -z-10 w-full'>
+        <div className='sm:hidden block absolute top-[90px] animate-fade-in -z-10 w-full left-0'>
             <Image src={mobileBackgroundImage} alt='Discover and integrate with xcall' height='1596' width='1290' />
         </div>
-        <section className="py-4 md:pt-20 relative px-4 sm:px-16">
-            <h1 className="text-center sm:text-left tracking-widest text-[9vw] sm:text-[50px] lg:text-[70px] font-bold font-lemon relative z-1 dark:text-white text-black">xcall service</h1>
-            <h2 className="hidden sm:block w-7/12 text-[14px] md:text-[16px] lg:text-[22px] opacity-80">One messaging standard for all cross chain communication</h2>
+        <section className="md:pt-32 relative px-4 sm:px-16">
+            <h2  style={{ pointerEvents: "none", cursor: "default" }} className="text-[22px] md:text-[16px] lg:text-[22px] opacity-60 text-xpurple dark:text-white">Extend your dApp across multiple blockchains with</h2>
+            <h1 className="text-center sm:text-left tracking-widest text-[9vw] sm:text-[50px] lg:text-[70px] font-light font-lemon relative z-1 dark:text-white text-xpurple whitespace-nowrap"><span className='font-medium'>One</span> Standard</h1>
+            <h2  style={{ pointerEvents: "none", cursor: "default" }} className="text-[22px] md:text-[16px] lg:text-[34px] opacity-80 text-xpurple -translate-y-6 dark:text-white">for cross-chain messages</h2>
 
-            <div className='relative w-full sm:w-[400px] text-white text-[14px] my-4'>
-                <a className='peer' href='/what-is-xcall'>
-                    <button className='relative rounded-full bg-[#92BFC4] dark:bg-[#324648] px-4 py-2 uppercase w-full text-right flex flex-row justify-center'>
+            <div className='relative w-full sm:w-[450px] text-white text-[16px] my-4 -translate-y-4'>
+                <a className='peer !no-underline' href='/quickstart'>
+                    <button className='relative rounded-full bg-[#92BFC4] dark:bg-[#324648] hover:opacity-90 px-4 py-2 uppercase w-full text-right flex flex-row justify-center'>
                         <div className='w-1/2'></div>
-                        <div className=''>
-                            What is xCall?
+                        <div className='text-white uppercase no-underline'>
+                            Integrate now
                         </div>
                     </button>
                 </a>
@@ -58,66 +59,51 @@ return (
                     <h3 className='font-semibold'></h3>
                     <p className='w-[400px]'></p>
                 </div>
-                <a href='/getting-started'>
-                    <button className='whitespace-nowrap absolute left-0 top-0 rounded-full bg-[#00B8CC] px-6 py-2 uppercase w-1/2 text-center'>
-                        Get Started
+                <a className='!no-underline' href='/what-is-xcall'>
+                    <button className='whitespace-nowrap text-white absolute left-0 top-0 hover:bg-[#00B8CC]/50 rounded-full bg-[#00B8CC] px-6 py-2 uppercase w-1/2 text-center'>
+                        What is xcall
                     </button>
                 </a>
             </div>
         </section>
 
-        <section className="grid grid-cols-1 leading-normal px-4 sm:px-16 pb-8 sm:pb-0">
-                <a href='/quickstart/sending-a-message' className="relative w-fit hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all flex flex-row items-start justify-start py-4 sm:py-8 px-4 rounded-[30px] h-full">
-                    <div className='w-[45px] relative mr-4'>
-                        <Image src='/images/icon-inbox.svg' alt='Send a message cross-chain' height='700' width='700'/>
-                    </div>
-                    <div className='flex flex-col items-start justify-center w-full lg:w-[400px]'>
-                        <h3 className='text-sm md:text-xl  dark:text-white text-black font-lemon'>Send a message cross-chain</h3>
-                        <p className='text-xs opacity-80'>Detailed process of sending a cross chain encoded message using xCall.</p>
-                    </div>
-                </a>
+        <section className="w-full lg:w-2/3 pl-[296px] -translate-y-4 space-y-2">
 
-                <a href='/quickstart/setting-up-a-local-environment-with-dive-cli' className="relative w-fit hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all flex flex-row items-start justify-start py-4 sm:py-8 px-4 rounded-[30px] h-full">
-                    <div className='w-[45px] relative mr-4'>
-                        <Image src='/images/ico-dive.svg' alt='Send a message cross-chain' height='700' width='700'/>
-                    </div>
-                    <div className='flex flex-col items-start justify-center w-full lg:w-[400px]'>
-                        <h3 className='text-sm md:text-xl  dark:text-white text-black font-lemon'>Setup Local Environment: DIVE CLI</h3>
-                        <p className='text-xs opacity-80'>This guide will help you get up and running with DIVE CLI, the all-in-one tool designed to simplify blockchain development.</p>
-                    </div>
-                </a>
-         </section>
-
-         <section className="w-full lg:w-2/3 leading-normal px-4 sm:px-16  pb-16">
-                <h1 className="py-2 font-lemon text-sm md:text-xl">Popular Articles</h1>
-                <div className="py-4 grid gap-2 grid-cols-1 sm:grid-cols-2">
-                    <a href="/what-is-xcall" className="m-1 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-zinc-500/5 hover:bg-zinc-500/10 rounded-xl flex flex-row items-center justify-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                        </svg>
-                        <h2 className="text-sm">What is xCall?</h2>
-                    </a>
-                    <a href="/quickstart" className="m-1 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-zinc-500/5 hover:bg-zinc-500/10  rounded-xl flex flex-row items-center justify-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                        </svg>
-                        <h2 className="text-sm">Quickstart</h2>
-                    </a>
-                    <a href="/guides" className="m-1 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-zinc-500/5 hover:bg-zinc-500/10 rounded-xl flex flex-row items-center justify-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                        </svg>
-                        <h2 className="text-sm">Guides</h2>
-                    </a>
-                    <a href="/explanations" className="m-1 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-zinc-500/5 hover:bg-zinc-500/10 rounded-xl flex flex-row items-center justify-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                        </svg>
-                        <h2 className="text-sm">Explanations</h2>
-                    </a>
+            <a className='flex !no-underline group transition-all duration-500 relative'> 
+                <div className='w-[28px] relative mr-0 group-hover:mr-2 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
+                    <Image src='/images/icon-inbox.svg' alt='Send a message cross-chain' height='700' width='700'/>
                 </div>
-                
-         </section>
+                <button className='transition-all duration-500 ease-in-out text-[#92BFC4] dark:text-white '>
+                    Getting Started
+                </button>
+            </a>
+            <a className='flex !no-underline group transition-all duration-500 relative'> 
+                <div className='w-[28px] relative mr-0 group-hover:mr-2 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
+                    <Image src='/images/icon-inbox.svg' alt='Send a message cross-chain' height='700' width='700'/>
+                </div>
+                <button className='transition-all duration-500 ease-in-out text-[#92BFC4] dark:text-white'>
+                    Send a message cross-chain
+                </button>
+            </a>
+            <a className='flex !no-underline group transition-all duration-500 relative'> 
+                <div className='w-[28px] relative mr-0 group-hover:mr-2 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
+                    <Image src='/images/ico-dive.svg' alt='Send a message cross-chain' height='700' width='700'/>
+                </div>
+                <button className='transition-all duration-500 ease-in-out text-[#92BFC4] dark:text-white'>
+                    Local environment with DIVE CLI
+                </button>
+            </a>
+            <a className='flex !no-underline group transition-all duration-500 relative'> 
+                <div className='w-[28px] relative mr-0 group-hover:mr-2 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
+                    <Image src='/images/icon-inbox.svg' alt='Send a message cross-chain' height='700' width='700'/>
+                </div>
+                <button className='transition-all duration-500 ease-in-out text-[#92BFC4] dark:text-white'>
+                    Sending message
+                </button>
+            </a>
+
+            
+        </section>
 
     </main>
 

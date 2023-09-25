@@ -24,6 +24,7 @@ module.exports = {
     extend: {
       colors: {
         'xteal': '#00B8CC',
+        'xpurple': '#4A3D60',
       },
       fontFamily: {
         montserrat: "'Montserrat', sans-serif",
