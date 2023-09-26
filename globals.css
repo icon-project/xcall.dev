@@ -53,4 +53,19 @@
         font-weight: 300;
         src: url("/fonts/LEMONMILK-Light.otf") format('opentype') ;
     }
+    @font-face {
+        font-family: "LEMON";
+        font-weight: 400;
+        src: url("/fonts/LEMONMILK-Medium.otf") format('opentype') ;
+    }
+    @font-face {
+        font-family: "LEMON";
+        font-weight: 500;
+        src: url("/fonts/LEMONMILK-Regular.otf") format('opentype') ;
+    }
+    @font-face {
+        font-family: "LEMON";
+        font-weight: 700;
+        src: url("/fonts/LEMONMILK-Bold.otf") format('opentype') ;
+    }
 }
