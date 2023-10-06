@@ -2,13 +2,15 @@
     "message-lifecycle": {
         "title": "Message lifecycle",
         "theme": {
-            "layout": "default"
+            "layout": "default",
+            "breadcrumb": true
           }
     },
     "fees": {
         "title": "Fees",
         "theme": {
-            "layout": "default"
+            "layout": "default",
+            "breadcrumb": true
           }
     }
 }

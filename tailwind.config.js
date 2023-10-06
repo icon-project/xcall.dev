@@ -22,6 +22,9 @@ module.exports = {
       black: 900,
     },
     extend: {
+      colors: {
+        'xteal': '#00B8CC',
+      },
       fontFamily: {
         montserrat: "'Montserrat', sans-serif",
         lemon: "'LEMON', sans-serif",

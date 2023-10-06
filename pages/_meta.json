@@ -6,15 +6,25 @@
       "layout": "raw"
     }
   },
+  "privacy-policy": {
+    "title": "Privacy Policy",
+    "display": "hidden",
+    "theme": {
+      "layout": "default",
+      "breadcrumb": false
+    }
+  },
   "what-is-xcall": {
     "title": "What is xCall?",
     "theme": {
-    "layout": "default"
+    "layout": "default",
+    "breadcrumb": false
   }},
   "getting-started": {
     "title": "Getting started",
     "theme": {
-    "layout": "default"
+    "layout": "default",
+    "breadcrumb": false
   }},
   "-- BUILD WITH XCALL": {
     "type": "separator",
@@ -23,19 +33,22 @@
   "quickstart": {
     "title": "Quickstart",
     "theme": {
-      "layout": "default"
+      "layout": "default",
+      "breadcrumb": false
     }
   },
   "guides": {
     "title": "Guides",
     "theme": {
-      "layout": "default"
+      "layout": "default",
+      "breadcrumb": false
     }
   },
   "explanations": {
     "title": "Explanations",
     "theme": {
-      "layout": "default"
+      "layout": "default",
+      "breadcrumb": false
     }
   },
   "testnet": {

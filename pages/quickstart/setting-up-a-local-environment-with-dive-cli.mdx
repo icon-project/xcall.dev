@@ -1,6 +1,10 @@
+---
+description: DIVE CLI offers an all-in-one solution for smooth network setup, making it accessible even to those new to blockchain development. 
+---
+
 import { Callout } from "nextra/components";
 
-# Setup Local Environment Using DIVE Cli
+# Set up Local Environment Using DIVE CLI
 
 ## Introduction
 
@@ -8,11 +12,17 @@ DIVE is a powerful community-driven tool developed by HugoByte, designed to revo
 
 No more hassles of manual node configuration! DIVE CLI offers an all-in-one solution for smooth BTP network setup, making it accessible even to those new to blockchain development. Embrace a new era of blockchain innovation with DIVE's user-friendly interface and unleash the potential of decentralized applications.
 
+The DIVE CLI uses the Kurtosis SDK under the hood to orchestrate container spin up and management. To learn more about Kurtosis, [go here](https://github.com/kurtosis-tech/kurtosis). 
+
 <Callout type="info">
   <b>NOTE:</b> DIVE is currently in beta. Things may break. We are always looking to improve the tool and add new features, so if you have any issues or ideas please post them to the <a href="https://github.com/HugoByte/DIVE/issues"><b>DIVE issue tracker</b></a>.
 </Callout>
 
 This guide will help you set up your cross-chain devnet with DIVE CLI. It will walk you through the steps of how to set up an ICON node, EVM Hardhat node, and a relay to pass messages between them.
+
+<div className='rounded-xl overflow-hidden shadow w-fit my-4 '>
+  <img src='/images/dive-cli-banner.jpg' alt='Setup Local Environment Using DIVE CLI' height='593' width='1920'/>
+</div>
 
 ## Prerequisites
 
@@ -41,7 +51,7 @@ Before diving into DIVE CLI, ensure you have the following prerequisites install
 
 ## Setup Single Node
 
-### Icon
+### ICON
 
 To start an single ICON node, run the following command
 
@@ -87,7 +97,7 @@ Example dive.json
 * <b>nid:</b> The unique identifier id for the network.  
 
 
-#### Icon with Custom Configuration
+#### ICON with Custom Configuration
 
     ```sh
     dive chain icon --config 'path to config.json' --genesis 'path to genesis file' --id 'custom chain id'
@@ -156,7 +166,7 @@ dive chain eth
 After running the command, DIVE CLI will automatically start the ETH node and handle the necessary initialization processes. Please wait for the ETH node to fully initialize, which may take a few moments.
 
 <Callout type="info" emoji="💡">
-  <b>TIP:</b> DIVE cli also supports hardhat. You can start an hardhat Node by running
+  <b>TIP:</b> DIVE CLI also supports hardhat. You can start an hardhat Node by running
   the command ``` dive chain hardhat ```
 </Callout>
 
@@ -267,7 +277,7 @@ The above command automates several essential tasks to configure and initialise 
 - <b>Starting the Relay:</b> The relay image is built and launched, actively monitoring both the ICON and Ethereum chains to facilitate seamless message transfer between them.
 
 <Callout type="info" emoji="💡">
-  <b>TIP:</b> Also you can setup a BTP bridge between (Icon-Icon) by running followng
+  <b>TIP:</b> Also you can setup a BTP bridge between (ICON-ICON) by running followng
     command `dive bridge btp --chainA icon --chainB icon`
 
 </Callout>
@@ -277,52 +287,28 @@ Once the process completes, your local environment with the ICON and Ethereum ch
 
 ## Video Tutorials
 
+Setting up a local development environment using the DIVE CLI:
+
+
+  <div className="relative rounded-xl overflow-hidden shadow pb-[56.25%]" >
+    <iframe
+      className="absolute top-0 left-0 w-full h-full"
+      src="https://www.youtube.com/embed/zd-8vY-L4jk"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+
 If you prefer a video guide, we have a series of tutorials available on YouTube:
 
 - [YouTube Playlist: Dive - CLI](https://www.youtube.com/playlist?list=PL5Xd9z-fRL1vKtRlOzIlkhROspSSDeGyG)
 
-Feel free to explore each of these tutorials below to get hands-on experience with DIVE cli.
+Feel free to explore each of these tutorials below to get hands-on experience with DIVE CLI.
 
-### How to setup DIVE Cli
-<div className="relative" style={{ paddingBottom: "56.25%" }}>
-  <iframe
-    className="absolute top-0 left-0 w-full h-full"
-    src="https://www.youtube.com/embed/qz6cRF_mNHw"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-  ></iframe>
-</div>
+* How to setup DIVE CLI [here](https://youtu.be/qz6cRF_mNHw)
+* How to setup node using DIVE CLI [here](https://youtu.be/CeFyqqidFWM)
+* How to setup 2 chains using DIVE CLI [here](https://youtu.be/IjOe8rv127E)
+* BTP Bridge setup using DIVE CLI [here](https://youtu.be/fGrXsa14QDA)
 
-### How to setup node using DIVE Cli
-<div className="relative" style={{ paddingBottom: "56.25%" }}>
-  <iframe
-    className="absolute top-0 left-0 w-full h-full"
-    src="https://www.youtube.com/embed/CeFyqqidFWM"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-  ></iframe>
-</div>
-
-### How to setup 2 chains using DIVE Cli
-<div className="relative" style={{ paddingBottom: "56.25%" }}>
-  <iframe
-    className="absolute top-0 left-0 w-full h-full"
-    src="https://www.youtube.com/embed/IjOe8rv127E"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-  ></iframe>
-</div>
-
-### BTP Bridge setup using DIVE Cli
-<div className="relative" style={{ paddingBottom: "56.25%" }}>
-  <iframe
-    className="absolute top-0 left-0 w-full h-full"
-    src="https://www.youtube.com/embed/fGrXsa14QDA"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-  ></iframe>
-</div>

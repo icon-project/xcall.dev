@@ -14,12 +14,13 @@ const config: DocsThemeConfig = {
   docsRepositoryBase: 'https://github.com/icon-project/xcall.dev/tree/main/',
   useNextSeoProps() {
     const { asPath } = useRouter()
+    const { title, frontMatter } = useConfig()
     if (asPath !== '/') {
       return {
         titleTemplate: '%s – xCall Documentation',
-        description: "A cross-chain messaging interface deployable on any protocol",
+        description: frontMatter.description,
         openGraph: {
-          description: "A cross-chain messaging interface deployable on any protocol",
+          description: frontMatter.description,
           type: 'website',
           url: 'https://xcall.dev',
           images: [
@@ -31,19 +32,7 @@ const config: DocsThemeConfig = {
             }
           ],
         },
-        twitter: {
-          handle: '@helloiconworld',
-          site: 'https://xcall.dev',
-          cardType: 'summary_large_image',
-          images: [
-            {
-              url: 'https://xcall.dev/images/link-preview.jpg',
-              width: 1200,
-              height: 630,
-              alt: 'xCall Documentation',
-            }
-          ],
-        },
+        
       } 
     } else {
       return {
@@ -54,14 +43,16 @@ const config: DocsThemeConfig = {
           description: "A cross-chain messaging interface deployable on any protocol",
           type: 'website',
           url: 'https://xcall.dev',
-          
+          images: [
+            {
+              url: 'https://xcall.dev/images/link-preview.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'xCall Documentation',
+            }
+          ],
         },
-        twitter: {
-          handle: '@helloiconworld',
-          site: 'https://xcall.dev',
-          cardType: 'summary_large_image',
-          
-        },
+        
       }
     }
     
@@ -77,7 +68,7 @@ const config: DocsThemeConfig = {
   },
   primaryHue: {
     dark: 182, 
-    light: 182,
+    light: 192,
   },
   head: () => {
     const { asPath, defaultLocale, locale } = useRouter()
@@ -115,19 +106,23 @@ const config: DocsThemeConfig = {
     
     return (
       <>
-        <link rel="icon" type="image/png" href="/images/xcall-favicon.ico" />
+        <link rel="icon" type="image/png" href="/images/xcall-favicon.ico" hrefLang="en" />
         <meta name="msapplication-TileColor" content="#fff" />
         <meta name="theme-color" content="#fff" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="Content-Language" content="en" />
         <meta name="apple-mobile-web-app-title" content="xCall" />
-        <meta name="twitter:image" content="https://xcall.dev/images/link-preview.jpg"></meta>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/images/link-preview.jpg" />
+        <meta name="twitter:site:domain" content="xcall.dev" />
+        <meta name="twitter:url" content="https://xcall.dev" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(structuredData),
           }}
         />
+   
       </>
     )
   },
@@ -155,7 +150,7 @@ const config: DocsThemeConfig = {
   },
   banner: {
     key: 'banner-2',
-    text: <span><a href="https://iconfoundation.notion.site/Testnet-Challenges-bc1b7de910894307970841d64ea9548f" className='inline-block underline'>🟢 LIVE NOW - Earn ICX token rewards with xCall Incentivized Testnet Challenges →</a></span>
+    text: <span><a target="_blank" href="https://icon.community/blog/2023/winners-xcall-incentivized-testnet/" className='inline-block underline'>🏆 WINNERS ANNOUNCED - xCall Incentivized Testnet →</a></span>
   },
   navigation: {
     prev: true,

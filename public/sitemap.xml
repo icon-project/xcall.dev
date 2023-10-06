@@ -1,78 +1,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://localhost:3000/explanations</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/explanations</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/getting-started</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/getting-started</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/guides</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/guides</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/quickstart</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/privacy-policy</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/what-is-xcall</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/quickstart</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/explanations/fees</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/what-is-xcall</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/explanations/message-lifecycle</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/explanations/fees</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/guides/error-handling</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/explanations/message-lifecycle</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/guides/receiving-a-message</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/guides/error-handling</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/guides/sending-a-message</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/guides/receiving-a-message</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/quickstart/sending-a-message-with-rollback</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/guides/sending-a-message</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/quickstart/sending-a-message</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/quickstart/sending-a-message-with-rollback</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/quickstart/setting-up-a-local-environment-with-dive-cli</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/quickstart/sending-a-message</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/quickstart/setting-up-a-local-environment</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/quickstart/setting-up-a-local-environment-with-dive-cli</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-1</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/quickstart/setting-up-a-local-environment</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-2</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-1</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-3</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-2</loc>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-4</loc>
-    <changefreq>hourly</changefreq>
+    <loc>undefined/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-3</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>undefined/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-4</loc>
+    <changefreq>weekly</changefreq>
   </url>
 </urlset>

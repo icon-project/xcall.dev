@@ -1,5 +1,5 @@
 ---
-title: "xCall tutorial part 3: Integrating rollback functionality in the cross chain voting dApp."
+title: "Integrating rollback functionality in the cross chain voting dApp (3/4)"
 date: 2023-07-25
 author: espanicon
 slug: x-call-tutorial-part-3-integrating-rollback-functionality
@@ -11,6 +11,9 @@ tags:
 - solidity
 - xcall
 ---
+
+# Integrating rollback functionality in the cross chain voting dApp (3/4)
+
 ## Introduction
 
 In the first two parts of this series about creating a cross chain voting dApp we created the Java and Solidity smart contracts, executed the deployment and created the nodejs scripts to interact with the contracts.
@@ -301,7 +304,7 @@ contract VotingDapp {
 
 Once the refactoring for the smart contract is finished, the modifications to the nodejs scripts to showcase the rollback scenario is very minimal.
 
-The logic executes the same as the example showcase in [part 2 of this xCall tutorial series](https://icon.community/tutorials/x-call-tutorial-part-2-deploying-and-interacting-with-a-cross-chain-voting-dapp/) but we modify the script to continually keep casting votes until the votes cap is reached and then we execute one more vote to trigger the rollback.
+The logic executes the same as the example showcase in [part 2 of this xCall tutorial series](build-a-cross-chain-voting-dapp-part-2.md) but we modify the script to continually keep casting votes until the votes cap is reached and then we execute one more vote to trigger the rollback.
 
 ```js
 // Previous code
