@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react';
 import { setCookie, hasCookie } from 'cookies-next';
+import { track } from '@vercel/analytics';
 
 export default function Consent(){
     const [consent, setConsent] = useState(true);
@@ -37,8 +38,20 @@ export default function Consent(){
 
             
             <div className='flex gap-2'>
-                <button className='px-5 py-2 text-gray-300 border-gray-900 rounded-md' onClick={(e) => denyCookie()}>Decline</button>
-                <button className='px-5 py-2 text-white bg-gray-900 rounded-lg' onClick={() => {acceptCookie()}}>Allow Cookies</button>
+                <button className='px-5 py-2 text-gray-300 border-gray-900 rounded-md' 
+                        onClick={(e) => {
+                          denyCookie();
+                          track('DenyCookie');
+                        }}>
+                  Decline
+                </button>
+                <button className='px-5 py-2 text-white bg-gray-900 rounded-lg' 
+                        onClick={() => {
+                          acceptCookie();
+                          track('AcceptCookie');
+                        }}>
+                  Allow Cookies
+                </button>
             </div>   
         </div>
     )}
