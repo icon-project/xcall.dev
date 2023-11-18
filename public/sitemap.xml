@@ -36,6 +36,22 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>undefined/guides/build-a-cross-chain-voting-dapp-part-1</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>undefined/guides/build-a-cross-chain-voting-dapp-part-2</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>undefined/guides/build-a-cross-chain-voting-dapp-part-3</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>undefined/guides/build-a-cross-chain-voting-dapp-part-4</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>undefined/guides/error-handling</loc>
     <changefreq>weekly</changefreq>
   </url>
@@ -61,22 +77,6 @@
   </url>
   <url>
     <loc>undefined/quickstart/setting-up-a-local-environment</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>undefined/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-1</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>undefined/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-2</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>undefined/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-3</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>undefined/guides/build-a-cross-chain-voting-dapp/build-a-cross-chain-voting-dapp-part-4</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

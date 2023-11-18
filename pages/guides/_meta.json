@@ -1,6 +1,7 @@
 {
   "sending-a-message": {
     "title": "Sending a message",
+    "display": "hidden",
     "theme": {
       "layout": "default",
       "breadcrumb": true
@@ -8,6 +9,7 @@
   },
   "receiving-a-message": {
     "title": "Receiving a message",
+    "display": "hidden",
     "theme": {
       "layout": "default",
       "breadcrumb": true
@@ -22,9 +24,42 @@
   },
   "build-a-cross-chain-voting-dapp": {
     "title": "Build a cross chain voting dApp",
+    "display": "hidden",
     "theme": {
       "layout": "default",
       "breadcrumb": true
+    }
+  },
+  "build-a-cross-chain-voting-dapp-part-1": {
+    "title": "Build a cross-chain voting dApp (Part 1)",
+    "display": "hidden",
+    "theme": {
+      "layout": "default",
+      "breadcrumb": false
+    }
+  },
+  "build-a-cross-chain-voting-dapp-part-2": {
+    "title": "Build a cross-chain voting dApp (Part 2)",
+    "display": "hidden",
+    "theme": {
+      "layout": "default",
+      "breadcrumb": false
+    }
+  },
+  "build-a-cross-chain-voting-dapp-part-3": {
+    "title": "Build a cross-chain voting dApp (Part 3)",
+    "display": "hidden",
+    "theme": {
+      "layout": "default",
+      "breadcrumb": false
+    }
+  },
+  "build-a-cross-chain-voting-dapp-part-4": {
+    "title": "Build a cross-chain voting dApp (Part 4)",
+    "display": "hidden",
+    "theme": {
+      "layout": "default",
+      "breadcrumb": false
     }
   }
 }

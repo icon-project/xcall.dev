@@ -1,31 +1,31 @@
 {
-    "setting-up-a-local-environment": {
-        "title": "Setting up a local environment",
-        "theme": {
-            "layout": "default",
-            "breadcrumb": true
-        }
-    },
-    "setting-up-a-local-environment-with-dive-cli": {
-        "title": "Setting up a local environment with DIVE CLI",
-        "theme": {
-            "layout": "default",
-            "breadcrumb": true
-        }
-    },
-    "sending-a-message": {
-        "title": "Sending a message",
-        "theme": {
-            "layout": "default",
-            "breadcrumb": true
-        }
-    },
-    "sending-a-message-with-rollback": {
-        "title": "Sending a message with rollback",
-        "theme": {
-            "layout": "default",
-            "breadcrumb": true
-        }
+  "setting-up-a-local-environment": {
+    "title": "Setting up a local environment",
+    "display": "hidden",
+    "theme": {
+      "layout": "default",
+      "breadcrumb": true
     }
-
+  },
+  "setting-up-a-local-environment-with-dive-cli": {
+    "title": "Setting up a local environment with DIVE CLI",
+    "theme": {
+      "layout": "default",
+      "breadcrumb": true
+    }
+  },
+  "sending-a-message": {
+    "title": "Sending a message",
+    "theme": {
+      "layout": "default",
+      "breadcrumb": true
+    }
+  },
+  "sending-a-message-with-rollback": {
+    "title": "Sending a message with rollback",
+    "theme": {
+      "layout": "default",
+      "breadcrumb": true
+    }
+  }
 }
