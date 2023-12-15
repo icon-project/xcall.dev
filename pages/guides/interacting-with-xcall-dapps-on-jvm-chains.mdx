@@ -1,0 +1,241 @@
+---
+description: Interacting with xCall dapps on JVM chains
+---
+
+# xCall dapps on JVM chains
+
+Interacting with dApps connected with xcall requires you to be able to do the following tasks:
+* Call readonly methods on the specific chain.
+* Sign transactions invoking methods on smart contracts on the specific chain.
+* Fetch or listening to events being raised on smart contracts on the specific chain.
+
+On this tutorial we are going to showcase examples on doing all of this tasks for JVM chains using Javascript more specifically the [icon-sdk-js](https://github.com/icon-project/icon-sdk-js).
+
+For more in-depth details on the code and live testing this scenario you can clone our [xcall-scaffolding](https://github.com/icon-project/xcall-scaffolding) repo, in there you can find an specific demo that execute all the steps for a cross-chain transaction on a [JVM-JVM scenario](https://github.com/icon-project/xcall-scaffolding/blob/main/demo/demos/jvm-jvm-helloWorld.mjs).
+
+## Call readonly methods on JVM chains.
+
+One of the readonly calls that you will be required to make is the `getFee(String _net, Boolean _rollback)` method of the xCall contract, to learn more about fees you can checkout the explanation in the [following article](../explanations/fees).
+
+```js
+const IconService = require("icon-sdk-js");
+const {
+    HttpProvider,
+    IconBuilder
+} = IconService.default;
+
+const { CallBuilder } = IconBuilder;
+
+const rpcUrl = "https://lisbon.net.solidwallet.io/api/v3";
+const xcallContractAddress = "cx15a339fa60bd86225050b22ea8cd4a9d7cd8bb83"
+
+const iconProvider = new HttpProvider(rpcUrl);
+const iconService = new IconService.default(iconProvider);
+
+async function main() {
+    const request = new CallBuilder()
+        .to(xcallContractAddress)
+        .method("getFee")
+        .params({
+            _net: "0x111.icon", // Altair testnet on Havah
+            _rollback: "0x1"
+        })
+        .build()
+
+    const response = await iconService.call(request).execute();
+
+    console.log("request response");
+    console.log(response);
+    // response is something like "0x16345785d8a0000"
+}
+
+main();
+```
+## Sign transactions on JVM chains.
+
+Interacting with xCall dapps will require you to sign transactions for some contract methods (`sendMessage`, `executeCall` and/or `executeRollback`).
+
+With the `icon-sdk-js` you can sign transactions by first instantiating a new object from the main SDK class providing the RPC node that you want to use to connect to the chain.
+
+```js
+const IconService = require("icon-sdk-js");
+const {
+    HttpProvider,
+    IconWallet,
+    IconConverter,
+    SignedTransaction,
+    IconBuilder
+} = IconService.default;
+
+const { CallTransactionBuilder } = IconBuilder;
+
+const rpcUrl = "https://lisbon.net.solidwallet.io/api/v3";
+const privateKey = "0123...456";
+
+const iconProvider = new HttpProvider(rpcUrl);
+const iconService = new IconService.default(iconProvider);
+const wallet = IconWallet.loadPrivateKey(privateKey);
+
+const dappContractAddress = "cx0123...456";
+const chainNid = "0x2.icon";
+const txFee = "0x16345785d8a0000" // Obtained from calling 'getFee' method of xCall contract as previously explained
+const txParams = {
+    _to: "0x111.icon/hx1234...456", // Network address of dapp on destination chain
+    _data: "0x012344...333" // encoded data to send
+}
+
+async function main() {
+    const txObj = new CallTransactionBuilder()
+        .from(wallet.getAddress())
+        .to(dappContractAddress)
+        .stepLimit(IconConverter.toBigNumber(20000000))
+        .nid(IconConverter.toBigNumber(chainNid))
+        .nonce(IconConverter.toBigNumber(1))
+        .version(IconConverter.toBigNumber(3))
+        .timestamp(new Date().getTime() * 1000)
+        .method("sendMessage")
+        .value(txFee)
+        .params(txParams)
+        .build();
+
+    const signedTx = new SignedTransaction(txObj, wallet);
+    const result = await iconService.sendTransaction(signedTx).execute();
+
+    console.log("tx result");
+    console.log(result);
+}
+
+main();
+```
+
+## Fetch and/or listening for events on smart contracts on JVM chains.
+
+When interacting with dapps connected with xCall we need to listen/fetch certain events that will tell us on which part of the [message lifecycle](../explanations/message-lifecycle) we currently are, this will allow us to proceed executing the required signed transactions to complete the message sending process.
+
+On JVM chains, event data is obtained by calling the `icx_GetTransactionResult` RPC method with a provided transaction hash.
+
+```bash
+curl -X POST --data '{"jsonrpc":"2.0","method":"icx_getTransactionResult","id":484, "params":{"txHash": "0x81b2c70ce6fc475684969dba3e3ec672f484e8a3b713f2328f0476cefc469cda"}}' https://lisbon.net.solidwallet.io/api/v3 | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:-- 100  2035  100  1882  100   153   1835    149  0:00:01  0:00:01 --:--:--  1985
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "blockHash": "0x42ae416ef26e144a2212f45ebe502c49092ea659bb47083186703ac291c08c0f",
+    "blockHeight": "0x1e5b463",
+    "cumulativeStepUsed": "0x13ec33",
+    "eventLogs": [
+      {
+        "scoreAddress": "cxce68412abde16d19bff747f3e22d33e2f9315ce9",
+        "indexed": [
+          "ICXTransfer(Address,Address,int)",
+          "cxce68412abde16d19bff747f3e22d33e2f9315ce9",
+          "cx15a339fa60bd86225050b22ea8cd4a9d7cd8bb83",
+          "0x16345785d8a0000"
+        ],
+        "data": []
+      },
+      {
+        "scoreAddress": "cx0000000000000000000000000000000000000000",
+        "indexed": [
+          "BTPMessage(int,int)",
+          "0x3",
+          "0x76"
+        ],
+        "data": []
+      },
+      {
+        "scoreAddress": "cx2e230f2f91f7fe0f0b9c6fe1ce8dbba9f74f961a",
+        "indexed": [
+          "BTPEvent(str,int,str,str)",
+          "0x2.icon",
+          "0x103"
+        ],
+        "data": [
+          "0x111.icon",
+          "SEND"
+        ]
+      },
+      {
+        "scoreAddress": "cx15a339fa60bd86225050b22ea8cd4a9d7cd8bb83",
+        "indexed": [
+          "ICXTransfer(Address,Address,int)",
+          "cx15a339fa60bd86225050b22ea8cd4a9d7cd8bb83",
+          "hxd885affeb48f395cbf250c4f35a808f820d38406",
+          "0x16345785d8a0000"
+        ],
+        "data": []
+      },
+      {
+        "scoreAddress": "cx15a339fa60bd86225050b22ea8cd4a9d7cd8bb83",
+        "indexed": [
+          "CallMessageSent(Address,str,int)",
+          "cxce68412abde16d19bff747f3e22d33e2f9315ce9",
+          "0x111.icon/cx7743830816123dad6ed524c4a8555dd04b493404",
+          "0x18c"
+        ],
+        "data": []
+      }
+    ],
+    "logsBloom": "0x800100000100000000000001000000000000080000000000008000000000000000220000000400040004080004000000000000000004480000000800000000001000001000000000000000000000200100000000000000000080000000000200000000080000000000000000000010000000000000000008004000000000000000020000003001000000000000000000000000000000080000000020000000000000020000400000000802000000200200010082000006000000a0400000008000000000000000000020000000000020002100000000000000000000100000000000000000800000080000000000000010000000000000000000000000000008",
+    "status": "0x1",
+    "stepPrice": "0x2e90edd00",
+    "stepUsed": "0x13ec33",
+    "to": "cxce68412abde16d19bff747f3e22d33e2f9315ce9",
+    "txHash": "0x81b2c70ce6fc475684969dba3e3ec672f484e8a3b713f2328f0476cefc469cda",
+    "txIndex": "0x1"
+  },
+  "id": 484
+}
+```
+
+You can do this with the `icon-sdk-js` also like in the following code sample:
+
+```js
+const IconService = require("icon-sdk-js");
+const { HttpProvider } = IconService.default;
+
+const rpcUrl = "https://lisbon.net.solidwallet.io/api/v3";
+
+const iconProvider = new HttpProvider(rpcUrl);
+const iconService = new IconService.default(iconProvider);
+
+async function main() {
+  const txHash =
+      "0x81b2c70ce6fc475684969dba3e3ec672f484e8a3b713f2328f0476cefc469cda";
+  const txResult = await iconService.getTransactionResult(txHash).execute();
+  console.log("tx result:");
+  console.log(txResult);
+}
+
+main();
+```
+
+The request response (formatted in JSON) will have an `eventLogs` param with an array of all the events raised when our transaction was processed by the chain, in here we can find the relevant events related to our interactions with xCall, in this example we can see that the `CallMessageSent` event was successfully raised:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "blockHash": "0x42ae416ef26e144a2212f45ebe502c49092ea659bb47083186703ac291c08c0f",
+    "blockHeight": "0x1e5b463",
+    "cumulativeStepUsed": "0x13ec33",
+    "eventLogs": [
+    ...
+      {
+        "scoreAddress": "cx15a339fa60bd86225050b22ea8cd4a9d7cd8bb83",
+        "indexed": [
+          "CallMessageSent(Address,str,int)",
+          "cxce68412abde16d19bff747f3e22d33e2f9315ce9",
+          "0x111.icon/cx7743830816123dad6ed524c4a8555dd04b493404",
+          "0x18c"
+        ],
+        "data": []
+      }
+    ],
+    ...
+  },
+  "id": 484
+}
+```

@@ -56,6 +56,18 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>undefined/guides/interacting-with-xcall-dapps-on-cosmwasm-chains</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>undefined/guides/interacting-with-xcall-dapps-on-evm-chains</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>undefined/guides/interacting-with-xcall-dapps-on-jvm-chains</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>undefined/guides/receiving-a-message</loc>
     <changefreq>weekly</changefreq>
   </url>
