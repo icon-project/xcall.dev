@@ -1,0 +1,143 @@
+---
+description: Interacting with xCall dapps on COSMWASM chains
+---
+
+# xCall dapps on COSMWASM chains
+
+Interacting with dApps connected with xcall requires you to be able to do the following tasks:
+* Call readonly methods on the specific chain.
+* Sign transactions invoking methods on smart contracts on the specific chain.
+* Fetch or listening to events being raised on smart contracts on the specific chain.
+
+On this tutorial we are going to showcase examples on doing all of this tasks for COSMWASM chains using Javascript more specifically the [cosmjs](https://github.com/cosmos/cosmjs) npm package.
+
+For more in-depth details on the code and live testing this scenario you can clone our [xcall-scaffolding](https://github.com/icon-project/xcall-scaffolding) repo, in there you can find an specific demo that execute all the steps for a cross-chain transaction on a [JVM-COSMWASM scenario](https://github.com/icon-project/xcall-scaffolding/blob/main/demo/demos/jvm-cosmwasm-helloWorld.mjs).
+
+## Sign transactions on COSMWASM chains.
+
+Interacting with xCall dapps will require you to sign transactions for some contract methods (`sendMessage`, `executeCall` and/or `executeRollback`).
+
+On COSMWASM chains this can be done using the `cosmjs` npm package.
+
+The following is a code example showcasing how to sign the transaction to invoke the `executeCall` (`execute_call` on cosmwasm chains) method of the xCall contract:
+
+```js
+import { DirectSecp256k1Wallet } from "@cosmjs/proto-signing";
+import { SigningCosmWasmClient } from "@cosmjs/cosmwasm-stargate";
+import { calculateFee, GasPrice } from "@cosmjs/stargate";
+
+const privateKey = "0123...456";
+const rpc = "https://rpc.constantine.archway.tech:443";
+const xcallAdress = "archway1h04c8eqr99dnsw6wqx80juj2vtuxth70eh65cf6pnj4zan6ms4jqshc5wk":
+const reqId = 122 // ID of the cross chain transaction on destination
+const data = [0,2,1,...4] // data (payload) of the cross chain message of type array of integers from 0 to 255;
+
+async function main() {
+    const wallet = await DirectSecp256k1Wallet.fromKey(Buffer.from(privateKey, "hex"), "archway");
+    const service = await SigningCosmWasmClient.connectWithSigner(rpc, wallet);
+
+    const gasPrice = GasPrice.fromString("1000000000000aconst");
+    const fee = calculateFee(1_000_000, gasPrice);
+    const request = await service.execute(
+        wallet.address,
+        xcallAddress,
+        {
+            execute_call: {
+                request_id: reqId,
+                data: data
+            }
+        }
+    );
+
+    console.log("request:");
+    console.log(request);
+}
+
+main();
+```
+
+## Fetch and/or listening for events on smart contracts on COSMWASM chains.
+
+
+Fetching the xcall specific events on a COSMWASM chain will require for you to listen for every block on the chain, fetch the transactions on the block and then make a request to get the data specific to that transaction to find out if the specific event you are waiting has been raised or not.
+
+A detailed code implementing this event monitor can be found in the [jvm-cosmwasm demo](https://github.com/icon-project/xcall-scaffolding/blob/main/demo/demos/jvm-cosmwasm-helloWorld.mjs) of the xcall-scaffolding repo.
+
+As a summary, once we found a transaction that contains our event it will look like the following:
+
+```json
+{
+  height: 3450917,
+  txIndex: 0,
+  hash: '1F28AC292198F1CED4B4577756A0FC919DB60D42FBB42BD42EA60584689F0673',
+  code: 0,
+  events: [
+    { type: 'wasm-CallMessage', attributes: [Array] },
+  ],
+  rawLog: '....',
+  tx: Uint8Array(924) [
+     10, 222,   5,  10, 219,   5,  10,  36,  47,  99, 111, 115,
+    109, 119,  97, 115, 109,  46, 119,  97, 115, 109,  46, 118,
+     49,  46,  77, 115, 103,  69, 120, 101,  99, 117, 116, 101,
+     67, 111, 110, 116, 114,  97,  99, 116,  18, 178,   5,  10,
+     46,  97, 114,  99, 104, 119,  97, 121,  49,  54,  50, 120,
+     50, 113, 121, 118, 113, 110, 106, 101, 116, 116, 103,  53,
+    115, 116, 110, 112, 107, 102, 120,  50, 115, 101, 112, 103,
+    102, 106,  56, 104, 106, 117,  51,  48,  51,  51,  48,  18,
+     66,  97, 114,  99,
+    ... 824 more items
+  ],
+  msgResponses: [],
+  gasUsed: 709269n,
+  gasWanted: 1066923n
+}
+```
+
+The specific event object looks like this:
+
+```json
+{
+  type: 'wasm-CallMessage',
+  attributes: [
+    {
+      key: '_contract_address',
+      value: 'archway1h04c8eqr99dnsw6wqx80juj2vtuxth70eh65cf6pnj4zan6ms4jqshc5wk'
+    },
+    {
+      key: 'data',
+      value: '[69, 120, 101, 99, 117, 116, 101, 82, 111, 108, 108, 98, 97, 99, 107]'
+    },
+    {
+      key: 'from',
+      value: '0x2.icon/cxce68412abde16d19bff747f3e22d33e2f9315ce9'
+    },
+    { key: 'reqId', value: '95' },
+    { key: 'sn', value: '399' },
+    {
+      key: 'to',
+      value: 'archway1u8xcyx4x7fhvrsskwwlj4gd37ks8w0su263r2vx66nsfvlplzcgqr35cwr'
+    }
+  ]
+}
+```
+
+In here, the `data` and `reqId` param are the values that we are going to be using to sign the `executeCall` transaction explained in the previous section about signing transactions on COSMWASM chains.
+
+The following is a concise example of how to fetch the transaction data:
+
+```js
+import { StargateClient } from "@cosmjs/stargate";
+
+const rpc = "https://rpc.constantine.archway.tech:443";
+const txHash = "0x12345...567"; // tx hash where event was raised
+
+async function main() {
+    const client = await StargateClient.connect(rpc);
+    const tx = await client.getTx(txHash);
+
+    console.log("tx data");
+    console.log(tx);
+}
+
+main();
+```

@@ -1,0 +1,144 @@
+---
+description: Interacting with xCall dapps on EVM chains
+---
+
+# xCall dapps on EVM chains
+
+Interacting with dApps connected with xcall requires you to be able to do the following tasks:
+* Call readonly methods on the specific chain.
+* Sign transactions invoking methods on smart contracts on the specific chain.
+* Fetch or listening to events being raised on smart contracts on the specific chain.
+
+On this tutorial we are going to showcase examples on doing all of this tasks for EVM chains using Javascript more specifically the [ethers.js](https://github.com/ethers-io/ethers.js) and/or [web3js](https://github.com/web3/web3.js) sdk's which are the most common libraries used for interacting with EVM chains.
+
+For more in-depth details on the code and live testing this scenario you can clone our [xcall-scaffolding](https://github.com/icon-project/xcall-scaffolding) repo, in there you can find an specific demo that execute all the steps for a cross-chain transaction on a [JVM-EVM scenario](https://github.com/icon-project/xcall-scaffolding/blob/main/demo/demos/jvm-evm-helloWorld.mjs).
+
+## Sign transactions on EVM chains.
+
+Interacting with xCall dapps will require you to sign transactions for some contract methods (`sendMessage`, `executeCall` and/or `executeRollback`).
+
+On EVM chains this can be done using `ethers.js` npm package by instantiating a `ethers.Contract` object with the contract address, ABI and signer (wallet to sign) and then calling the specific contract method you want to sign.
+
+```js
+import  { ethers } from ethers;
+
+const rpc = "https://sepolia.infura.io/v3/ffbf8ebe228f4758ae82e175640275e0"
+const privateKey = "01234...567";
+const contractAddress = "0x1234..567";
+const ABI = [{...}] // ABI of the contract you are calling
+const payload = "0x1234..567" // encoded message
+const rollback = "0x1234..567" // encoded rollback data
+
+const provider = new ethers.providers.JsonRpcProvider(rpc);
+const signer = new ethers.Wallet(privateKey, provider);
+
+async function main() {
+    const contractObject = new ethers.Contract(contractAddress, ABI, signer);
+    const txParams = {
+        gasPrice: ethers.utils.parseUnits("50", "gwei"),
+        gasLimit: 10000000
+    };
+    const tx = await contractObject["sendMessage"](payload, rollback, txParams);
+    const txWaited = await tx.wait(1);
+
+    console.log('evm transaction info');
+    console.log(txWaited);
+}
+
+main();
+```
+
+## Fetch and/or listening for events on smart contracts on EVM chains.
+
+Events are indexed on EVM chains by using "topics", these "topics" are fixed 32 bytes strings of data that define some specific attributes of the events that are being raised, to understand more about how events and topics work on EVM chain you can read the [following article](https://www.linkedin.com/pulse/tm003-demystifying-evm-logs-events-antematter) which does a great job on explaining these subjects.
+
+Now that you understand how events (and topics) work on EVM chain, we need to listen for the xcall specific events that will be raised on the chain in order to make sure that these events actually happened.
+
+The first thing we need to do is to create the "filter" that we are going to be using to indentify the specific event we are listening for.
+
+The previously linked article explained that for example the first topic of an event is the keccak-256 hash of the signature of the event. Our goal is to obtain something similar to the following JSON data:
+
+```json
+{
+  "address": "0x8E302b2fD7C10A0033e48EB0602Db3C7d6E0F506",
+  "topics": [
+    "0x2cbc78425621c181f9f8a25fc06e44a0ac2b67cd6a31f8ed7918934187f8cc59",
+    "0x2c75781e5c9012c4747349bf4752617806f32d220063aea0ab3c71c821ea73b5",
+    "0xa29b4f53c17d5daa5cd43796ed6f46c27dd253be6eafa7bf81c29b060ff949b9",
+    "0x000000000000000000000000000000000000000000000000000000000000018d"
+    ]
+}
+```
+
+Once we have the correct filter that identifies our specific event we can query the chain and listen to the blocks that are created that contain the specific "filter" that we have created:
+
+```json
+{
+  "blockNumber": 4894807,
+  "blockHash": "0x2ce77bf19425ff90bb6eea703399daf841d447dd2cf48d268fa4281acd5a6566",
+  "transactionIndex": 47,
+  "removed": false,
+  "address": "0x8E302b2fD7C10A0033e48EB0602Db3C7d6E0F506",
+  "data": "0x000000000000000000000000000000000000000000000000000000000000004c0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000f65786563757465526f6c6c6261636b0000000000000000000000000000000000",
+  "topics": [
+    "0x2cbc78425621c181f9f8a25fc06e44a0ac2b67cd6a31f8ed7918934187f8cc59",
+    "0x2c75781e5c9012c4747349bf4752617806f32d220063aea0ab3c71c821ea73b5",
+    "0xa29b4f53c17d5daa5cd43796ed6f46c27dd253be6eafa7bf81c29b060ff949b9",
+    "0x000000000000000000000000000000000000000000000000000000000000018d"
+  ],
+  "transactionHash": "0xb560c9499b1f0d6026e51f5c1b501192002b4648655f704b08ddc2f98f88898e",
+  "logIndex": 149,
+  "event": "CallMessage",
+  "eventSignature": "CallMessage(string,string,uint256,uint256,bytes)",
+  "args": [
+    {
+      "_isIndexed": true,
+      "hash": "0x2c75781e5c9012c4747349bf4752617806f32d220063aea0ab3c71c821ea73b5"
+    },
+    {
+      "_isIndexed": true,
+      "hash": "0xa29b4f53c17d5daa5cd43796ed6f46c27dd253be6eafa7bf81c29b060ff949b9"
+    },
+    {
+      "type": "BigNumber",
+      "hex": "0x018d"
+    },
+    {
+      "type": "BigNumber",
+      "hex": "0x4c"
+    },
+    "0x65786563757465526f6c6c6261636b"
+  ]
+}
+```
+
+The following code example shows how to listen for the `CallMessage` event on an EVM chain by using the `ethers.js` npm package.
+
+```js
+import  { ethers } from ethers;
+
+const rpc = "https://sepolia.infura.io/v3/ffbf8ebe228f4758ae82e175640275e0"
+const privateKey = "01234...567";
+const contractAddress = "0x1234..567";
+const sourceNetworkAddress = "0x2.icon/hx123...456";
+const ABI = [{...}] // ABI of the contract you are calling
+const blockHeight = 1234567; // Block height of the chain
+
+const provider = new ethers.providers.JsonRpcProvider(rpc);
+const signer = new ethers.Wallet(privateKey, provider);
+
+async function main() {
+    const contractObject = new ethers.Contract(contractAddress, ABI, signer);
+    const eventFilter = filterEventEvm(contractObject, "CallMessage", sourceNetworkAddress, contractAddress);
+    const events = await contractObject.queryFilter(eventFilter, blockHeight);
+
+    console.log('evm event data');
+    console.log(events);
+}
+
+function filterEventEvm(contract, method, ...params) {
+    return contract.filters[method](...params);
+}
+
+main();
+```

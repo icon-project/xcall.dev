@@ -1,4 +1,32 @@
 {
+  "error-handling": {
+    "title": "Error Handling",
+    "theme": {
+      "layout": "default",
+      "breadcrumb": true
+    }
+  },
+  "interacting-with-xcall-dapps-on-jvm-chains": {
+    "title": "Interacting with xCall dApps on JVM chains",
+    "theme": {
+      "layout": "default",
+      "breadcrumb": true
+    }
+  },
+  "interacting-with-xcall-dapps-on-evm-chains": {
+    "title": "Interacting with xCall dApps on EVM chains",
+    "theme": {
+      "layout": "default",
+      "breadcrumb": true
+    }
+  },
+  "interacting-with-xcall-dapps-on-cosmwasm-chains": {
+    "title": "Interacting with xCall dApps on COSMWASM chains",
+    "theme": {
+      "layout": "default",
+      "breadcrumb": true
+    }
+  },
   "sending-a-message": {
     "title": "Sending a message",
     "display": "hidden",
@@ -10,13 +38,6 @@
   "receiving-a-message": {
     "title": "Receiving a message",
     "display": "hidden",
-    "theme": {
-      "layout": "default",
-      "breadcrumb": true
-    }
-  },
-  "error-handling": {
-    "title": "Error Handling",
     "theme": {
       "layout": "default",
       "breadcrumb": true
