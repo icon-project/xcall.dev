@@ -6,6 +6,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import ChainChecker from '../components/ChainChecker';
 
 export const Homepage = () => {
   const {systemTheme, theme, setTheme} = useTheme();
@@ -118,6 +119,10 @@ return (
                 </div>
                 
          </section>
+
+         <section className="py-4 relative px-4 sm:px-16 xl:rounded-xl">
+            <ChainChecker/>
+        </section>
 
     </main>
 
