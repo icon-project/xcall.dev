@@ -45,9 +45,9 @@ const ChainChecker = () => {
           <button className={'px-4 py-2 font-medium bg-xteal/60 rounded-full block '} href="https://icon.community/integrations/">View xCall Integration Overview</button>
         </div>
         
-        <div className='flex items-center justify-around mx-8 space-x-8 '>
+        <div className='grid grid-cols-2 mx-8 sm:grid-cols-5'>
           {matchingChains.map((chain, index) => (
-            <div key={index} className='flex flex-col items-center'>
+            <div key={index} className='flex flex-col items-center mt-4 sm:mt-0'>
               <img className='w-8 h-8 mb-2' src={chain.logo} alt={chain.name} />
               <div className='font-medium'>{chain.name}</div>
             </div>
