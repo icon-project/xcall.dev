@@ -6,16 +6,19 @@ const ChainChecker = () => {
   const [matchingChains, setMatchingChains] = useState([]);
   const bgopacity = matchingChains.length > 0 ? 20 : 0;
   
-  // Update the matching chains based on the search term
   useEffect(() => {
-    if (searchTerm) {
-      const filteredChains = blockchains.filter(chain =>
-        chain.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setMatchingChains(filteredChains);
-    } else {
-      setMatchingChains([]);
-    }
+    const debounceId = setTimeout(() => {
+      if (searchTerm) {
+        const filteredChains = blockchains.filter(chain =>
+          chain.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setMatchingChains(filteredChains);
+      } else {
+        setMatchingChains([]);
+      }
+    }, 300); // 300 ms delay
+
+    return () => clearTimeout(debounceId); // Cleanup function to clear the timeout
   }, [searchTerm]);
 
   return (
@@ -38,7 +41,7 @@ const ChainChecker = () => {
       </div>
 
       {/* Matching Chains Display */}
-      <div className={`py-4 bg-green-200/${bgopacity} backdrop-blur rounded-xl text-center transform-all ` + (searchTerm ? 'block ' : 'hidden ')}>
+      <div className={`transition-all duration-500 ease-in-out ${matchingChains.length > 0 ? 'max-h-[420px] sm:max-h-96 bg-green-200/20' : 'max-h-32 sm:max-h-28 bg-green-200/0'} overflow-hidden py-4 backdrop-blur rounded-xl text-center transform-all ` + (searchTerm ? 'block ' : 'hidden ')}>
         <p className={'mx-8 mb-4 font-bold ' + (matchingChains.length > 0 ? 'inline-block' : 'hidden')}>xCall is compatible with</p>
         <div className={matchingChains.length > 0 ? 'hidden' : 'inline-block'}>
           <p className={'font-bold mb-4' }>xCall currently has no compatibility with <span className='italic'>"{searchTerm}"</span></p>
@@ -53,7 +56,7 @@ const ChainChecker = () => {
             </div>
           ))}
         </div>
-        <a href="https://icon.community/integrations/" target="_blank" className={'mx-8 mt-8 px-12 text-sm py-1.5 uppercase whitespace-nowrap font-medium  bg-xteal/60 rounded-full ' + (matchingChains.length > 0 ? 'inline-block ' : 'hidden')}>Integrations Overview ↗</a>
+        <a href="/getting-started" className={'mx-8 mt-8 px-12 text-sm py-1.5 uppercase whitespace-nowrap font-medium  bg-xteal/60 rounded-full ' + (matchingChains.length > 0 ? 'inline-block ' : 'hidden')}>Get Started</a>
       </div>
       
     </div>

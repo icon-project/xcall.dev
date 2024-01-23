@@ -51,24 +51,10 @@
       "breadcrumb": false
     }
   },
-  "testnet": {
-      "title": "💰 Incentivized Testnet",
-      "type": "menu",
-      "items": {
-        "program": {
-          "title": "📄 Full Program ↗",
-          "href": "https://iconfoundation.notion.site/xCall-Incentivized-Testnet-Program-Phase-1-9d16a7bc2b124b348a78896f378ee316"
-        },
-        "challenges": {
-          "title": "🏆 Challenges ↗",
-          "href": "https://iconfoundation.notion.site/Testnet-Challenges-bc1b7de910894307970841d64ea9548f"
-        }
-      }
-  },
   "btp2-status-monitor": {
     "title": "✅ BTP2 Status Monitor ↗",
     "type": "page",
-    "href": "https://testnet.btp2.24x365.online/",
+    "href": "https://server02.espanicon.team/",
     "newWindow": true
   }  
 }
