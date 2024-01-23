@@ -148,10 +148,10 @@ const config: DocsThemeConfig = {
     defaultMenuCollapseLevel: 1,
     toggleButton: true
   },
-  banner: {
-    key: 'banner-2',
-    text: <span><a target="_blank" href="https://icon.community/blog/2023/winners-xcall-incentivized-testnet/" className='inline-block underline'>🏆 WINNERS ANNOUNCED - xCall Incentivized Testnet →</a></span>
-  },
+  // banner: {
+  //   key: 'banner-2',
+  //   text: <span><a target="_blank" href="https://icon.community/" className='inline-block underline'>Visit the ICON Community Website →</a></span>
+  // },
   navigation: {
     prev: true,
     next: true
